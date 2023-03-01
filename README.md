@@ -1,4 +1,4 @@
-# Nixie-Clock
+# NixieClock
 This is the project of nixie clock based on IN-16 tubes and low-cost ATtiny88 Microcontroller. They are simplified, so they don't have any control buttons, except one reed switch. Reed switch is used to reset time to 20:00.
 If you have any issues with time synchronization, you can trim the value of C17.
 
