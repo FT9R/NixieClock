@@ -1,0 +1,72 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		/* CMake */
+		{
+			"type": "cmake",
+			"label": "CMake: configure",
+			"command": "configure",
+			"problemMatcher": [],
+			"detail": "CMake template configure task"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task",
+			"dependsOn": [
+				"CMake: configure"
+			]
+		},
+		/* avrdude */
+		{
+			"label": "avrdude: program",
+			"type": "shell",
+			"command": "avrdude",
+			"args": [
+				{
+					"value": "-p t88 -c usbasp -D -U flash:w:build/${workspaceFolderBasename}.hex",
+					"quoting": "weak"
+				}
+			],
+			"problemMatcher": [],
+			"dependsOn": [
+				"CMake: build",
+				"avrdude: erase"
+			]
+		},
+		{
+			"label": "avrdude: read",
+			"type": "shell",
+			"command": "avrdude",
+			"args": [
+				{
+					"value": "-p t88 -c usbasp -U flash:r:build/dump.hex",
+					"quoting": "weak"
+				}
+			],
+			"problemMatcher": [],
+			"dependsOn": [
+				"CMake: build"
+			]
+		},
+		{
+			"label": "avrdude: erase",
+			"type": "shell",
+			"command": "avrdude",
+			"args": [
+				{
+					"value": "-p t88 -c usbasp -e",
+					"quoting": "weak"
+				}
+			],
+			"problemMatcher": [],
+			"dependsOn": []
+		}
+	]
+}

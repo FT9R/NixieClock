@@ -1,0 +1,772 @@
+Archive member included to satisfy reference by file (symbol)
+
+lib/ADC/libADC.a(ADC.c.obj)   CMakeFiles/NixieClock.elf.dir/src/main.c.obj (ADC_Init)
+lib/PID/libPID.a(PID.c.obj)   CMakeFiles/NixieClock.elf.dir/src/main.c.obj (arm_pid_f32)
+lib/RTC/libRTC.a(RTC.c.obj)   CMakeFiles/NixieClock.elf.dir/src/main.c.obj (RTC_BCDtoDEC)
+lib/TWI/libTWI.a(TWI.c.obj)   CMakeFiles/NixieClock.elf.dir/src/main.c.obj (I2C_Init)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__udivmodqi4)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__udivmodhi4)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__udivmodsi4)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o (exit)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__do_clear_bss)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__subsf3)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o) (__addsf3x)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__ltsf2)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fixunssfsi.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__fixunssfsi)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(floatsisf.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__floatunsisf)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_cmp.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o) (__fp_cmp)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_inf.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_inf)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_nan.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_nan)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscA.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_pscA)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscB.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_pscB)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_round.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o) (__fp_round)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_split3.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_split3)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_zero.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o) (__fp_zero)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(gesf2.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__gtsf2)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o)
+                              CMakeFiles/NixieClock.elf.dir/src/main.c.obj (__mulsf3)
+e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3x.o)
+                              e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o) (__mulsf3x)
+
+Allocating common symbols
+Common symbol       size              file
+
+temperature         0xc               CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+voltage             0x3e              CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+cad                 0x8               CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+time                0x3               CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+indication          0x9               CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .text          0x0000000000000000        0x0 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .data          0x0000000000000000        0x0 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .bss           0x0000000000000000        0x0 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.TIM0_Init
+                0x0000000000000000       0x1c CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.TIM1_Init
+                0x0000000000000000       0x22 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.CathodeSwitch
+                0x0000000000000000       0x10 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.AnodeSwitch
+                0x0000000000000000       0x18 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.Display_DeadTime
+                0x0000000000000000        0xa CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.TimeToDigit
+                0x0000000000000000        0xe CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.TemperatureToDigit
+                0x0000000000000000       0x40 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.SoftStart
+                0x0000000000000000       0x62 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text.SoftTurnoff
+                0x0000000000000000       0x58 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .avr.prop      0x0000000000000000       0x28 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .text          0x0000000000000000        0x0 lib/ADC/libADC.a(ADC.c.obj)
+ .data          0x0000000000000000        0x0 lib/ADC/libADC.a(ADC.c.obj)
+ .bss           0x0000000000000000        0x0 lib/ADC/libADC.a(ADC.c.obj)
+ .text          0x0000000000000000        0x0 lib/PID/libPID.a(PID.c.obj)
+ .data          0x0000000000000000        0x0 lib/PID/libPID.a(PID.c.obj)
+ .bss           0x0000000000000000        0x0 lib/PID/libPID.a(PID.c.obj)
+ .text.arm_pid_reset_f32
+                0x0000000000000000        0xe lib/PID/libPID.a(PID.c.obj)
+ .text          0x0000000000000000        0x0 lib/RTC/libRTC.a(RTC.c.obj)
+ .data          0x0000000000000000        0x0 lib/RTC/libRTC.a(RTC.c.obj)
+ .bss           0x0000000000000000        0x0 lib/RTC/libRTC.a(RTC.c.obj)
+ .text          0x0000000000000000        0x0 lib/TWI/libTWI.a(TWI.c.obj)
+ .data          0x0000000000000000        0x0 lib/TWI/libTWI.a(TWI.c.obj)
+ .bss           0x0000000000000000        0x0 lib/TWI/libTWI.a(TWI.c.obj)
+ .text.I2C_SendByteByADDR
+                0x0000000000000000       0x3a lib/TWI/libTWI.a(TWI.c.obj)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc   0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fixunssfsi.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fixunssfsi.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fixunssfsi.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(floatsisf.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(floatsisf.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(floatsisf.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_cmp.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_cmp.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_cmp.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_inf.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_inf.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_inf.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_nan.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_nan.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_nan.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscA.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscA.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscA.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscB.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscB.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscB.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_round.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_round.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_round.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_split3.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_split3.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_split3.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_zero.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_zero.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_zero.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(gesf2.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(gesf2.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(gesf2.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o)
+ .text          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3x.o)
+ .data          0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3x.o)
+ .bss           0x0000000000000000        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3x.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000002000 xr
+data             0x0000000000800100 0x0000000000000200 rw !x
+eeprom           0x0000000000810000 0x0000000000000040 rw !x
+fuse             0x0000000000820000 0x0000000000000003 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+START GROUP
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a
+END GROUP
+LOAD CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+LOAD lib/ADC/libADC.a
+LOAD lib/PID/libPID.a
+LOAD lib/RTC/libRTC.a
+LOAD lib/TWI/libTWI.a
+START GROUP
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libc.a
+LOAD e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libattiny88.a
+END GROUP
+                0x0000000000000000                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x0000000000800100]                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
+                [0x0000000000002000]                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x2000
+                [0x0000000000000200]                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                [0x0000000000000040]                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x0000000000000003]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x0000000000000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x0000000000000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x0000000000000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000      0xfa6
+ *(.vectors)
+ .vectors       0x0000000000000000       0x28 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+                0x0000000000000000                __vector_default
+                0x0000000000000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x0000000000000028                . = ALIGN (0x2)
+                0x0000000000000028                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000000000000028        0x0 linker stubs
+ *(.trampolines*)
+                0x0000000000000028                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+                0x0000000000000028                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000000000000028                __ctors_start = .
+ *(.ctors)
+                0x0000000000000028                __ctors_end = .
+                0x0000000000000028                __dtors_start = .
+ *(.dtors)
+                0x0000000000000028                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000000000000028        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+                0x0000000000000028                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000000000000028        0xc e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000000000000034       0x10 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_clear_bss.o)
+                0x0000000000000034                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000000000000044        0x4 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ *(.init9)
+ *(.text)
+ .text          0x0000000000000048        0x2 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+                0x0000000000000048                __vector_1
+                0x0000000000000048                __bad_interrupt
+                0x0000000000000048                __vector_6
+                0x0000000000000048                __vector_3
+                0x0000000000000048                __vector_11
+                0x0000000000000048                __vector_13
+                0x0000000000000048                __vector_17
+                0x0000000000000048                __vector_19
+                0x0000000000000048                __vector_7
+                0x0000000000000048                __vector_5
+                0x0000000000000048                __vector_4
+                0x0000000000000048                __vector_9
+                0x0000000000000048                __vector_2
+                0x0000000000000048                __vector_15
+                0x0000000000000048                __vector_8
+                0x0000000000000048                __vector_14
+                0x0000000000000048                __vector_10
+                0x0000000000000048                __vector_18
+                0x000000000000004a                . = ALIGN (0x2)
+ *(.text.*)
+ .text.IO_Init  0x000000000000004a       0x1a CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                0x000000000000004a                IO_Init
+ .text.__vector_12
+                0x0000000000000064      0x2d6 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                0x0000000000000064                __vector_12
+ .text.__vector_16
+                0x000000000000033a      0x118 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                0x000000000000033a                __vector_16
+ .text.startup.main
+                0x0000000000000452      0x56a CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                0x0000000000000452                main
+ .text.ADC_Init
+                0x00000000000009bc       0x22 lib/ADC/libADC.a(ADC.c.obj)
+                0x00000000000009bc                ADC_Init
+ .text.arm_pid_f32
+                0x00000000000009de       0xb4 lib/PID/libPID.a(PID.c.obj)
+                0x00000000000009de                arm_pid_f32
+ .text.arm_pid_init_f32
+                0x0000000000000a92       0xa2 lib/PID/libPID.a(PID.c.obj)
+                0x0000000000000a92                arm_pid_init_f32
+ .text.RTC_BCDtoDEC
+                0x0000000000000b34       0x16 lib/RTC/libRTC.a(RTC.c.obj)
+                0x0000000000000b34                RTC_BCDtoDEC
+ .text.RTC_DECtoBCD
+                0x0000000000000b4a        0xc lib/RTC/libRTC.a(RTC.c.obj)
+                0x0000000000000b4a                RTC_DECtoBCD
+ .text.I2C_Init
+                0x0000000000000b56        0x8 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b56                I2C_Init
+ .text.I2C_StartCondition
+                0x0000000000000b5e       0x10 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b5e                I2C_StartCondition
+ .text.I2C_StopCondition
+                0x0000000000000b6e        0x8 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b6e                I2C_StopCondition
+ .text.I2C_SendByte
+                0x0000000000000b76       0x14 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b76                I2C_SendByte
+ .text.I2C_ReadByte
+                0x0000000000000b8a       0x14 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b8a                I2C_ReadByte
+ .text.I2C_ReadLastByte
+                0x0000000000000b9e       0x14 lib/TWI/libTWI.a(TWI.c.obj)
+                0x0000000000000b9e                I2C_ReadLastByte
+ .text.libgcc.div
+                0x0000000000000bb2       0x18 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodqi4.o)
+                0x0000000000000bb2                __udivmodqi4
+ .text.libgcc.div
+                0x0000000000000bca       0x28 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodhi4.o)
+                0x0000000000000bca                __udivmodhi4
+ .text.libgcc.div
+                0x0000000000000bf2       0x44 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_udivmodsi4.o)
+                0x0000000000000bf2                __udivmodsi4
+ .text.avr-libc.fplib
+                0x0000000000000c36        0xa e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3.o)
+                0x0000000000000c36                __subsf3
+                0x0000000000000c38                __addsf3
+ .text.avr-libc.fplib
+                0x0000000000000c40       0xc0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(addsf3x.o)
+                0x0000000000000c5a                __addsf3x
+ .text.avr-libc.fplib
+                0x0000000000000d00        0x8 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(cmpsf2.o)
+                0x0000000000000d00                __nesf2
+                0x0000000000000d00                __eqsf2
+                0x0000000000000d00                __cmpsf2
+                0x0000000000000d00                __ltsf2
+                0x0000000000000d00                __lesf2
+ .text.avr-libc.fplib
+                0x0000000000000d08       0x58 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fixunssfsi.o)
+                0x0000000000000d08                __fixunssfsi
+ .text.avr-libc.fplib
+                0x0000000000000d60       0x7a e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(floatsisf.o)
+                0x0000000000000d60                __floatunsisf
+                0x0000000000000d64                __floatsisf
+ .text.avr-libc.fplib
+                0x0000000000000dda       0x48 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_cmp.o)
+                0x0000000000000dda                __fp_cmp
+ .text.avr-libc.fplib
+                0x0000000000000e22        0xc e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_inf.o)
+                0x0000000000000e22                __fp_inf
+ .text.avr-libc.fplib
+                0x0000000000000e2e        0x6 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_nan.o)
+                0x0000000000000e2e                __fp_nan
+ .text.avr-libc.fplib
+                0x0000000000000e34        0xe e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscA.o)
+                0x0000000000000e34                __fp_pscA
+ .text.avr-libc.fplib
+                0x0000000000000e42        0xe e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_pscB.o)
+                0x0000000000000e42                __fp_pscB
+ .text.avr-libc.fplib
+                0x0000000000000e50       0x22 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_round.o)
+                0x0000000000000e50                __fp_round
+ .text.avr-libc.fplib
+                0x0000000000000e72       0x44 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_split3.o)
+                0x0000000000000e72                __fp_split3
+                0x0000000000000e82                __fp_splitA
+ .text.avr-libc.fplib
+                0x0000000000000eb6        0xe e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(fp_zero.o)
+                0x0000000000000eb6                __fp_zero
+                0x0000000000000eb8                __fp_szero
+ .text.avr-libc.fplib
+                0x0000000000000ec4        0x8 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(gesf2.o)
+                0x0000000000000ec4                __gesf2
+                0x0000000000000ec4                __gtsf2
+ .text.avr-libc.fplib
+                0x0000000000000ecc        0x4 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3.o)
+                0x0000000000000ecc                __mulsf3
+ .text.avr-libc.fplib
+                0x0000000000000ed0       0xd2 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25\libm.a(mulsf3x.o)
+                0x0000000000000ee2                __mulsf3x
+                0x0000000000000ee6                __mulsf3_pse
+                0x0000000000000fa2                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000000fa2        0x0 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+                0x0000000000000fa2                _exit
+                0x0000000000000fa2                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000000fa2        0x4 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/avr25\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000000000000fa6                _etext = .
+
+.data           0x0000000000800100        0x0 load address 0x0000000000000fa6
+                [!provide]                        PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.r*)
+                0x0000000000800100                . = ALIGN (0x2)
+                0x0000000000800100                _edata = .
+                [!provide]                        PROVIDE (__data_end, .)
+
+.bss            0x0000000000800100       0x5f
+                0x0000000000800100                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.buttonCounter.1933
+                0x0000000000800100        0x1 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ *(COMMON)
+ COMMON         0x0000000000800101       0x5e CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                0x0000000000800101                temperature
+                0x000000000080010d                voltage
+                0x000000000080014b                cad
+                0x0000000000800153                time
+                0x0000000000800156                indication
+                0x000000000080015f                PROVIDE (__bss_end, .)
+                0x0000000000000fa6                __data_load_start = LOADADDR (.data)
+                0x0000000000000fa6                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x000000000080015f        0x0
+                [!provide]                        PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                        PROVIDE (__noinit_end, .)
+                0x000000000080015f                _end = .
+                [!provide]                        PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x30
+ *(.comment)
+ .comment       0x0000000000000000       0x30 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                                         0x31 (size before relaxing)
+ .comment       0x0000000000000030       0x31 lib/ADC/libADC.a(ADC.c.obj)
+ .comment       0x0000000000000030       0x31 lib/PID/libPID.a(PID.c.obj)
+ .comment       0x0000000000000030       0x31 lib/RTC/libRTC.a(RTC.c.obj)
+ .comment       0x0000000000000030       0x31 lib/TWI/libTWI.a(TWI.c.obj)
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x148
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x80 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_aranges
+                0x0000000000000080       0x20 lib/ADC/libADC.a(ADC.c.obj)
+ .debug_aranges
+                0x00000000000000a0       0x30 lib/PID/libPID.a(PID.c.obj)
+ .debug_aranges
+                0x00000000000000d0       0x28 lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_aranges
+                0x00000000000000f8       0x50 lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x1afb
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x576 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .debug_info    0x0000000000000576     0x109a CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_info    0x0000000000001610       0x83 lib/ADC/libADC.a(ADC.c.obj)
+ .debug_info    0x0000000000001693      0x1db lib/PID/libPID.a(PID.c.obj)
+ .debug_info    0x000000000000186e       0xdd lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_info    0x000000000000194b      0x1b0 lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_abbrev   0x0000000000000000      0xb36
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x52b e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .debug_abbrev  0x000000000000052b      0x2e6 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_abbrev  0x0000000000000811       0x51 lib/ADC/libADC.a(ADC.c.obj)
+ .debug_abbrev  0x0000000000000862      0x12a lib/PID/libPID.a(PID.c.obj)
+ .debug_abbrev  0x000000000000098c       0x8d lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_abbrev  0x0000000000000a19      0x11d lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_line     0x0000000000000000      0xd20
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0x1a e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .debug_line    0x000000000000001a      0x8fd CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_line    0x0000000000000917       0xaa lib/ADC/libADC.a(ADC.c.obj)
+ .debug_line    0x00000000000009c1      0x103 lib/PID/libPID.a(PID.c.obj)
+ .debug_line    0x0000000000000ac4       0xb4 lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_line    0x0000000000000b78      0x1a8 lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_frame    0x0000000000000000      0x358
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x1a8 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_frame   0x00000000000001a8       0x24 lib/ADC/libADC.a(ADC.c.obj)
+ .debug_frame   0x00000000000001cc       0xd4 lib/PID/libPID.a(PID.c.obj)
+ .debug_frame   0x00000000000002a0       0x34 lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_frame   0x00000000000002d4       0x84 lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_str      0x0000000000000000      0x750
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x1d9 e:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr25/crtattiny88.o
+ .debug_str     0x00000000000001d9      0x49a CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+                                        0x4d6 (size before relaxing)
+ .debug_str     0x0000000000000673       0x29 lib/ADC/libADC.a(ADC.c.obj)
+                                        0x165 (size before relaxing)
+ .debug_str     0x000000000000069c       0x4a lib/PID/libPID.a(PID.c.obj)
+                                        0x1c5 (size before relaxing)
+ .debug_str     0x00000000000006e6       0x29 lib/RTC/libRTC.a(RTC.c.obj)
+                                        0x176 (size before relaxing)
+ .debug_str     0x000000000000070f       0x41 lib/TWI/libTWI.a(TWI.c.obj)
+                                        0x1cd (size before relaxing)
+
+.debug_loc      0x0000000000000000      0xc2d
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x826 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_loc     0x0000000000000826      0x2b3 lib/PID/libPID.a(PID.c.obj)
+ .debug_loc     0x0000000000000ad9       0xba lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_loc     0x0000000000000b93       0x9a lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000      0x170
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0xe8 CMakeFiles/NixieClock.elf.dir/src/main.c.obj
+ .debug_ranges  0x00000000000000e8       0x10 lib/ADC/libADC.a(ADC.c.obj)
+ .debug_ranges  0x00000000000000f8       0x20 lib/PID/libPID.a(PID.c.obj)
+ .debug_ranges  0x0000000000000118       0x18 lib/RTC/libRTC.a(RTC.c.obj)
+ .debug_ranges  0x0000000000000130       0x40 lib/TWI/libTWI.a(TWI.c.obj)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(NixieClock.elf elf32-avr)
+LOAD linker stubs

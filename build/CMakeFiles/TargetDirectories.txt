@@ -1,0 +1,17 @@
+E:/AVR/projects/NixieClock/build/CMakeFiles/NixieClock.elf.dir
+E:/AVR/projects/NixieClock/build/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/CMakeFiles/rebuild_cache.dir
+E:/AVR/projects/NixieClock/build/lib/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/lib/CMakeFiles/rebuild_cache.dir
+E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/ADC.dir
+E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/rebuild_cache.dir
+E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/PID.dir
+E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/rebuild_cache.dir
+E:/AVR/projects/NixieClock/build/lib/RTC/CMakeFiles/RTC.dir
+E:/AVR/projects/NixieClock/build/lib/RTC/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/lib/RTC/CMakeFiles/rebuild_cache.dir
+E:/AVR/projects/NixieClock/build/lib/TWI/CMakeFiles/TWI.dir
+E:/AVR/projects/NixieClock/build/lib/TWI/CMakeFiles/edit_cache.dir
+E:/AVR/projects/NixieClock/build/lib/TWI/CMakeFiles/rebuild_cache.dir

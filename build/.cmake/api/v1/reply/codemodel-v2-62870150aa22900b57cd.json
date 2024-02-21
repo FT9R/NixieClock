@@ -1,0 +1,179 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "lib",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-lib-Debug-e9069484d90298468a11.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib"
+				},
+				{
+					"build" : "lib/ADC",
+					"jsonFile" : "directory-lib.ADC-Debug-665f13473d1856adabda.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "lib/ADC",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "lib/PID",
+					"jsonFile" : "directory-lib.PID-Debug-8ab5302d49ad64101012.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "lib/PID",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "lib/RTC",
+					"jsonFile" : "directory-lib.RTC-Debug-1a388ec88d32ea03c3ab.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "lib/RTC",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "lib/TWI",
+					"jsonFile" : "directory-lib.TWI-Debug-adb3bce521e60594ff0b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "lib/TWI",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "NixieClock",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "ADC::@ae8c3fdfe38d32f88a96",
+					"jsonFile" : "target-ADC-Debug-fd21f8b16151b74a5d7a.json",
+					"name" : "ADC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NixieClock.elf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NixieClock.elf-Debug-85c14039b8d28309f7c6.json",
+					"name" : "NixieClock.elf",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "PID::@db640250461224e46d66",
+					"jsonFile" : "target-PID-Debug-61e23b295a8f47fa171f.json",
+					"name" : "PID",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "RTC::@b3c53b8e6b5ee49ffe07",
+					"jsonFile" : "target-RTC-Debug-4b3e78dcfbc76ebff007.json",
+					"name" : "RTC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "TWI::@cfe3995a66f1b85b4411",
+					"jsonFile" : "target-TWI-Debug-4169545753486eeb2582.json",
+					"name" : "TWI",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/AVR/projects/NixieClock/build",
+		"source" : "E:/AVR/projects/NixieClock"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

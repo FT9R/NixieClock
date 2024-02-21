@@ -1,0 +1,97 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0/include",
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0/include-fixed",
+						"E:/Toolchain/avr8-gnu-toolchain/avr/include"
+					],
+					"linkDirectories" : 
+					[
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0",
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc",
+						"E:/Toolchain/avr8-gnu-toolchain/avr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"m",
+						"c"
+					]
+				},
+				"path" : "E:/Toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe",
+				"version" : "7.3.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0/include",
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0/include-fixed",
+						"E:/Toolchain/avr8-gnu-toolchain/avr/include"
+					],
+					"linkDirectories" : 
+					[
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc/avr/7.3.0",
+						"E:/Toolchain/avr8-gnu-toolchain/lib/gcc",
+						"E:/Toolchain/avr8-gnu-toolchain/avr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"m",
+						"gcc",
+						"m",
+						"c"
+					]
+				},
+				"path" : "E:/Toolchain/avr8-gnu-toolchain/bin/avr-g++.exe",
+				"version" : "7.3.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

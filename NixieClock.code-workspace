@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"main.h": "c",
+			"rtc.h": "c",
+			"adc.h": "c",
+			"twi.h": "c",
+			"delay.h": "c",
+			"pid.h": "c",
+			"datatypes.h": "c"
+		}
+	},
+}
