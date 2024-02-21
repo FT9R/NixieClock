@@ -33,6 +33,8 @@ struct CAD_s
     uint8_t digit5;
     uint8_t digit6;
     uint16_t counter;
+    uint8_t updateStage;
+    bool update;
 } cad;
 
 struct Temperature_s

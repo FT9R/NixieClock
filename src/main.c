@@ -392,30 +392,33 @@ int main(void)
                 voltage.pid.run = false;
             }
 
-            /* Read temperature */
-            if (time.sec == 9)
-            {
-                if (temperature.isCompensated)
-                {
-                    I2C_StartCondition();
-                    I2C_SendByte(0b10010000); // Device address + write bit
-                    I2C_SendByte(0x00); // Pointer
-                    I2C_StartCondition(); // Restart
-                    I2C_SendByte(0b10010001); // Device address + read bit
-                    temperature.msb = I2C_ReadByte();
-                    temperature.lsb = I2C_ReadLastByte();
-                    I2C_StopCondition();
-                    temperature.value = (1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125)) +
-                                        temperature.compensationFactor;
-                }
-                else
-                    temperature.value = temperature.valueRef;
-            }
-
             /* Display temperature */
             if ((time.sec > 9) && (time.sec < 15))
-                indication.dispMode = DISPLAY_TEMPERATURE;
-            if (time.sec == 15)
+            {
+                if (indication.dispMode != DISPLAY_TEMPERATURE)
+                {
+                    indication.dispMode = DISPLAY_TEMPERATURE;
+
+                    /* Read temperature */
+                    if (temperature.isCompensated)
+                    {
+                        I2C_StartCondition();
+                        I2C_SendByte(0b10010000); // Device address + write bit
+                        I2C_SendByte(0x00); // Pointer
+                        I2C_StartCondition(); // Restart
+                        I2C_SendByte(0b10010001); // Device address + read bit
+                        temperature.msb = I2C_ReadByte();
+                        temperature.lsb = I2C_ReadLastByte();
+                        I2C_StopCondition();
+                        temperature.value =
+                            (1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125)) +
+                            temperature.compensationFactor;
+                    }
+                    else
+                        temperature.value = temperature.valueRef;
+                }
+            }
+            else if (indication.dispMode == DISPLAY_TEMPERATURE)
                 indication.dispMode = DISPLAY_TIME, CLEAR_BIT(PORTA, 1 << 3);
 
             /* Temperature compensation */
@@ -442,11 +445,10 @@ int main(void)
             }
 
             /* Cathodes anti-degradation (CAD) */
-            if (time.sec == 29)
-                cad.counter = 0;
-            if ((time.sec > 29) && (time.sec < 35))
+            if ((time.sec > 34) && (time.sec < 40))
             {
-                indication.dispMode = DISPLAY_CAD;
+                if (indication.dispMode != DISPLAY_CAD)
+                    indication.dispMode = DISPLAY_CAD, cad.counter = 0;
                 cad.digit1 = (cad.counter / (1445 * 5 / 20)) % 10;
                 cad.digit2 = cad.digit1;
                 cad.digit3 = cad.digit1;
@@ -454,8 +456,77 @@ int main(void)
                 cad.digit5 = cad.digit1;
                 cad.digit6 = cad.digit1;
             }
-            else if (time.sec == 35)
-                indication.dispMode = DISPLAY_TIME;
+            else if ((time.sec == 40) && (!cad.update))
+            {
+                cad.digit1 = 0;
+                cad.digit2 = 0;
+                cad.digit3 = 0;
+                cad.digit4 = 0;
+                cad.digit5 = 0;
+                cad.digit6 = 0;
+                cad.counter = 0;
+                cad.updateStage = 1;
+                cad.update = true;
+            }
+            if (cad.update)
+            {
+                switch (cad.updateStage)
+                {
+                case 1:
+                    cad.digit1 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.hour / 10) == cad.digit1)
+                    {
+                        ++cad.updateStage;
+                        cad.counter = 0;
+                    }
+                    break;
+
+                case 2:
+                    cad.digit2 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.hour % 10) == cad.digit2)
+                    {
+                        ++cad.updateStage;
+                        cad.counter = 0;
+                    }
+                    break;
+
+                case 3:
+                    cad.digit3 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.min / 10) == cad.digit3)
+                    {
+                        ++cad.updateStage;
+                        cad.counter = 0;
+                    }
+                    break;
+
+                case 4:
+                    cad.digit4 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.min % 10) == cad.digit4)
+                    {
+                        ++cad.updateStage;
+                        cad.counter = 0;
+                    }
+                    break;
+
+                case 5:
+                    cad.digit5 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.sec / 10) == cad.digit5)
+                    {
+                        ++cad.updateStage;
+                        cad.counter = 0;
+                    }
+                    break;
+
+                case 6:
+                    cad.digit6 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.sec % 10) == cad.digit6)
+                    {
+                        cad.update = false;
+                        indication.dispMode = DISPLAY_TIME;
+                    }
+                    break;
+                }
+            }
         }
     }
 }
