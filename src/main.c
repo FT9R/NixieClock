@@ -29,7 +29,7 @@ void IO_Init(void)
     CLEAR_REG(PORTB);
 
     /* PORTD */
-    MODIFY_REG(DDRD, 0xFF, 0xFE);
+    MODIFY_REG(DDRD, 0xFF, 0xFF);
     CLEAR_REG(PORTD);
 }
 
@@ -78,159 +78,159 @@ void SoftTurnoff(void)
 
 ISR(TIMER0_COMPA_vect)
 {
-    if (!indication.pause)
+    if (indication.pause)
+        return;
+
+    if (indication.dispMode == DISPLAY_TIME)
     {
-        if (indication.dispMode == DISPLAY_TIME)
+        switch (indication.counter)
         {
-            switch (indication.counter)
-            {
-            case 1:
-                TimeToDigit(time.hour);
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit1);
-                break;
-            case 2:
-                Display_DeadTime();
-                break;
-            case 3:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit2);
-                break;
-            case 4:
-                Display_DeadTime();
-                break;
-            case 5:
-                TimeToDigit(time.min);
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit1);
-                break;
-            case 6:
-                Display_DeadTime();
-                break;
-            case 7:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit2);
-                break;
-            case 8:
-                Display_DeadTime();
-                break;
-            case 9:
-                TimeToDigit(time.sec);
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit1);
-                break;
-            case 10:
-                Display_DeadTime();
-                break;
-            case 11:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(indication.digit2);
-                break;
-            case 12:
-                Display_DeadTime();
-                break;
-            }
+        case 1:
+            TimeToDigit(time.hour);
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit1);
+            break;
+        case 2:
+            Display_DeadTime();
+            break;
+        case 3:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit2);
+            break;
+        case 4:
+            Display_DeadTime();
+            break;
+        case 5:
+            TimeToDigit(time.min);
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit1);
+            break;
+        case 6:
+            Display_DeadTime();
+            break;
+        case 7:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit2);
+            break;
+        case 8:
+            Display_DeadTime();
+            break;
+        case 9:
+            TimeToDigit(time.sec);
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit1);
+            break;
+        case 10:
+            Display_DeadTime();
+            break;
+        case 11:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(indication.digit2);
+            break;
+        case 12:
+            Display_DeadTime();
+            break;
         }
-
-        if (indication.dispMode == DISPLAY_TEMPERATURE)
-        {
-            switch (indication.counter)
-            {
-            case 1:
-                TemperatureToDigit(temperature.value);
-                AnodeSwitch(3u);
-                CathodeSwitch(indication.digit1);
-                break;
-            case 2:
-                Display_DeadTime();
-                break;
-            case 3:
-                break;
-            case 4:
-                AnodeSwitch(4u);
-                CathodeSwitch(indication.digit2);
-                SET_BIT(PORTA, 1 << 3); // RDP turn on
-                break;
-            case 5:
-                Display_DeadTime();
-                break;
-            case 6:
-                break;
-            case 7:
-                AnodeSwitch(5u);
-                CathodeSwitch(indication.digit3);
-                CLEAR_BIT(PORTA, 1 << 3); // RDP turn off
-                break;
-            case 8:
-                Display_DeadTime();
-                break;
-            case 9:
-                break;
-            case 10:
-                AnodeSwitch(6u);
-                CathodeSwitch(indication.digit4);
-                break;
-            case 11:
-                Display_DeadTime();
-                break;
-            case 12:
-                break;
-            }
-        }
-
-        if (indication.dispMode == DISPLAY_CAD)
-        {
-            switch (indication.counter)
-            {
-            case 1:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit1);
-                break;
-            case 2:
-                Display_DeadTime();
-                break;
-            case 3:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit2);
-                break;
-            case 4:
-                Display_DeadTime();
-                break;
-            case 5:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit3);
-                break;
-            case 6:
-                Display_DeadTime();
-                break;
-            case 7:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit4);
-                break;
-            case 8:
-                Display_DeadTime();
-                break;
-            case 9:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit5);
-                break;
-            case 10:
-                Display_DeadTime();
-                break;
-            case 11:
-                AnodeSwitch((indication.counter + 1) / 2);
-                CathodeSwitch(cad.digit6);
-                break;
-            case 12:
-                Display_DeadTime();
-                break;
-            }
-        }
-        if (++indication.counter > 12)
-            indication.counter = 1;
-        ++cad.counter;
-        voltage.pid.run = true;
     }
+
+    if (indication.dispMode == DISPLAY_TEMPERATURE)
+    {
+        switch (indication.counter)
+        {
+        case 1:
+            TemperatureToDigit(temperature.value);
+            AnodeSwitch(3u);
+            CathodeSwitch(indication.digit1);
+            break;
+        case 2:
+            Display_DeadTime();
+            break;
+        case 3:
+            break;
+        case 4:
+            AnodeSwitch(4u);
+            CathodeSwitch(indication.digit2);
+            SET_BIT(PORTA, 1 << 3); // RDP turn on
+            break;
+        case 5:
+            Display_DeadTime();
+            break;
+        case 6:
+            break;
+        case 7:
+            AnodeSwitch(5u);
+            CathodeSwitch(indication.digit3);
+            CLEAR_BIT(PORTA, 1 << 3); // RDP turn off
+            break;
+        case 8:
+            Display_DeadTime();
+            break;
+        case 9:
+            break;
+        case 10:
+            AnodeSwitch(6u);
+            CathodeSwitch(indication.digit4);
+            break;
+        case 11:
+            Display_DeadTime();
+            break;
+        case 12:
+            break;
+        }
+    }
+
+    if (indication.dispMode == DISPLAY_CAD)
+    {
+        switch (indication.counter)
+        {
+        case 1:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit1);
+            break;
+        case 2:
+            Display_DeadTime();
+            break;
+        case 3:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit2);
+            break;
+        case 4:
+            Display_DeadTime();
+            break;
+        case 5:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit3);
+            break;
+        case 6:
+            Display_DeadTime();
+            break;
+        case 7:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit4);
+            break;
+        case 8:
+            Display_DeadTime();
+            break;
+        case 9:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit5);
+            break;
+        case 10:
+            Display_DeadTime();
+            break;
+        case 11:
+            AnodeSwitch((indication.counter + 1) / 2);
+            CathodeSwitch(cad.digit6);
+            break;
+        case 12:
+            Display_DeadTime();
+            break;
+        }
+    }
+    if (++indication.counter > 12)
+        indication.counter = 1;
+    ++cad.counter;
+    voltage.pid.run = true;
 }
 
 ISR(ADC_vect)
@@ -290,8 +290,8 @@ int main(void)
     I2C_SendByte(0xA2); // Device address + write bit
     I2C_SendByte(0x02); // Pointer
     I2C_SendByte(RTC_DECtoBCD(00)); // Sec
-    I2C_SendByte(RTC_DECtoBCD(30)); // Min
-    I2C_SendByte(RTC_DECtoBCD(15)); // Hour
+    I2C_SendByte(RTC_DECtoBCD(53)); // Min
+    I2C_SendByte(RTC_DECtoBCD(11)); // Hour
     I2C_StopCondition();
 #endif /* FIRST_START */
 
@@ -370,6 +370,7 @@ int main(void)
             {
                 OCR1B = 0;
                 SET_BIT(TCCR1A, 1 << COM1B1); // Clear OC1A/OC1B on compare match
+                CLEAR_BIT(PORTD, 1 << 0);
                 indication.pwmOutputStatus = CONNECTED;
             }
         }
@@ -397,8 +398,6 @@ int main(void)
             {
                 if (indication.dispMode != DISPLAY_TEMPERATURE)
                 {
-                    indication.dispMode = DISPLAY_TEMPERATURE;
-
                     /* Read temperature */
                     if (temperature.isCompensated)
                     {
@@ -416,6 +415,7 @@ int main(void)
                     }
                     else
                         temperature.value = temperature.valueRef;
+                    indication.dispMode = DISPLAY_TEMPERATURE;
                 }
             }
             else if (indication.dispMode == DISPLAY_TEMPERATURE)
@@ -456,7 +456,7 @@ int main(void)
                 cad.digit5 = cad.digit1;
                 cad.digit6 = cad.digit1;
             }
-            else if ((time.sec == 40) && (!cad.update))
+            else if ((indication.dispMode == DISPLAY_CAD) && (!cad.update))
             {
                 cad.digit1 = 0;
                 cad.digit2 = 0;
@@ -475,55 +475,41 @@ int main(void)
                 case 1:
                     cad.digit1 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.hour / 10) == cad.digit1)
-                    {
-                        ++cad.updateStage;
-                        cad.counter = 0;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 2:
                     cad.digit2 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.hour % 10) == cad.digit2)
-                    {
-                        ++cad.updateStage;
-                        cad.counter = 0;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 3:
                     cad.digit3 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.min / 10) == cad.digit3)
-                    {
-                        ++cad.updateStage;
-                        cad.counter = 0;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 4:
                     cad.digit4 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.min % 10) == cad.digit4)
-                    {
-                        ++cad.updateStage;
-                        cad.counter = 0;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 5:
                     cad.digit5 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.sec / 10) == cad.digit5)
-                    {
-                        ++cad.updateStage;
-                        cad.counter = 0;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 6:
                     cad.digit6 = (cad.counter / (1445 * 2 / 10)) % 10;
                     if ((time.sec % 10) == cad.digit6)
-                    {
-                        cad.update = false;
-                        indication.dispMode = DISPLAY_TIME;
-                    }
+                        ++cad.updateStage, cad.counter = 0;
+                    break;
+
+                default:
+                    cad.update = false, indication.dispMode = DISPLAY_TIME;
                     break;
                 }
             }

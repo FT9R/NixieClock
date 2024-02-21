@@ -1,6 +1,6 @@
 #pragma once
 
-// #define FIRST_START
+#define FIRST_START
 
 #define VREF         (float) 1.1
 #define ADC_SAMPLES  20
