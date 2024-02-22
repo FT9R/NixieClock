@@ -49,9 +49,23 @@ cmake_ninja_workdir = E$:/AVR/projects/NixieClock/build/
 
 build cmake_object_order_depends_target_NixieClock.elf: phony || cmake_object_order_depends_target_ADC cmake_object_order_depends_target_PID cmake_object_order_depends_target_RTC cmake_object_order_depends_target_TWI
 
+build CMakeFiles/NixieClock.elf.dir/src/indication.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/indication.c || cmake_object_order_depends_target_NixieClock.elf
+  DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\indication.c.obj.d
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
+  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
+  OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
+
+build CMakeFiles/NixieClock.elf.dir/src/init.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/init.c || cmake_object_order_depends_target_NixieClock.elf
+  DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\init.c.obj.d
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
+  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
+  OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
+  OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
+
 build CMakeFiles/NixieClock.elf.dir/src/main.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/main.c || cmake_object_order_depends_target_NixieClock.elf
   DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\main.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
   INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
@@ -64,7 +78,7 @@ build CMakeFiles/NixieClock.elf.dir/src/main.c.obj: C_COMPILER__NixieClock.2eelf
 #############################################
 # Link the executable NixieClock.elf
 
-build NixieClock.elf: C_EXECUTABLE_LINKER__NixieClock.2eelf_Debug CMakeFiles/NixieClock.elf.dir/src/main.c.obj | lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a || lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a
+build NixieClock.elf: C_EXECUTABLE_LINKER__NixieClock.2eelf_Debug CMakeFiles/NixieClock.elf.dir/src/indication.c.obj CMakeFiles/NixieClock.elf.dir/src/init.c.obj CMakeFiles/NixieClock.elf.dir/src/main.c.obj | lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a || lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a
   FLAGS = -g
   LINK_FLAGS = -mmcu=attiny88 -Wl,-Map=NixieClock.map -Wl,--start-group -Wl,-lm -Wl,--end-group -Wl,--gc-sections
   LINK_LIBRARIES = lib/ADC/libADC.a  lib/PID/libPID.a  lib/RTC/libRTC.a  lib/TWI/libTWI.a
@@ -143,7 +157,7 @@ build cmake_object_order_depends_target_ADC: phony || lib/ADC/CMakeFiles/ADC.dir
 
 build lib/ADC/CMakeFiles/ADC.dir/ADC.c.obj: C_COMPILER__ADC_unscanned_Debug E$:/AVR/projects/NixieClock/lib/ADC/ADC.c || cmake_object_order_depends_target_ADC
   DEP_FILE = lib\ADC\CMakeFiles\ADC.dir\ADC.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/ADC
   OBJECT_DIR = lib\ADC\CMakeFiles\ADC.dir
   OBJECT_FILE_DIR = lib\ADC\CMakeFiles\ADC.dir
@@ -204,7 +218,7 @@ build cmake_object_order_depends_target_PID: phony || lib/PID/CMakeFiles/PID.dir
 
 build lib/PID/CMakeFiles/PID.dir/PID.c.obj: C_COMPILER__PID_unscanned_Debug E$:/AVR/projects/NixieClock/lib/PID/PID.c || cmake_object_order_depends_target_PID
   DEP_FILE = lib\PID\CMakeFiles\PID.dir\PID.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/PID
   OBJECT_DIR = lib\PID\CMakeFiles\PID.dir
   OBJECT_FILE_DIR = lib\PID\CMakeFiles\PID.dir
@@ -265,7 +279,7 @@ build cmake_object_order_depends_target_RTC: phony || lib/RTC/CMakeFiles/RTC.dir
 
 build lib/RTC/CMakeFiles/RTC.dir/RTC.c.obj: C_COMPILER__RTC_unscanned_Debug E$:/AVR/projects/NixieClock/lib/RTC/RTC.c || cmake_object_order_depends_target_RTC
   DEP_FILE = lib\RTC\CMakeFiles\RTC.dir\RTC.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/RTC
   OBJECT_DIR = lib\RTC\CMakeFiles\RTC.dir
   OBJECT_FILE_DIR = lib\RTC\CMakeFiles\RTC.dir
@@ -326,7 +340,7 @@ build cmake_object_order_depends_target_TWI: phony || lib/TWI/CMakeFiles/TWI.dir
 
 build lib/TWI/CMakeFiles/TWI.dir/TWI.c.obj: C_COMPILER__TWI_unscanned_Debug E$:/AVR/projects/NixieClock/lib/TWI/TWI.c || cmake_object_order_depends_target_TWI
   DEP_FILE = lib\TWI\CMakeFiles\TWI.dir\TWI.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror
+  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = lib\TWI\CMakeFiles\TWI.dir
   OBJECT_FILE_DIR = lib\TWI\CMakeFiles\TWI.dir

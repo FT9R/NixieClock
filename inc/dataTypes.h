@@ -1,5 +1,6 @@
 #pragma once
 
+#include "PID.h"
 #include <stdbool.h>
 
 typedef enum displayModes_e { DISPLAY_TIME, DISPLAY_TEMPERATURE, DISPLAY_CAD } displayModes_t;
@@ -10,6 +11,8 @@ struct Indication_s
     uint8_t digit2;
     uint8_t digit3;
     uint8_t digit4;
+    uint8_t digit5;
+    uint8_t digit6;
     uint8_t counter;
     displayModes_t dispMode;
     bool pause;
@@ -22,16 +25,11 @@ struct Time_s
     uint8_t sec;
     uint8_t min;
     uint8_t hour;
+    bool adjusted;
 } time;
 
 struct CAD_s
 {
-    uint8_t digit1;
-    uint8_t digit2;
-    uint8_t digit3;
-    uint8_t digit4;
-    uint8_t digit5;
-    uint8_t digit6;
     uint32_t counter;
     uint8_t updateStage;
     bool update;

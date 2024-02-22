@@ -1,232 +1,86 @@
 #include "main.h"
 
-void TIM0_Init(void) // F = 1445Hz; T = 692us
-{
-    SET_BIT(TCCR0A, (1 << CS00) | (1 << CS01)); // clk/64
-    SET_BIT(TCCR0A, 1 << CTC0); // CTC EN
-    SET_BIT(TIMSK0, 1 << OCIE0A); // Output Compare Match A Interrupt Enable
-    OCR0A = 173 - 1;
-}
-
-void TIM1_Init(void) // F = 31.25kHz; T = 32us
-{
-    SET_BIT(TCCR1A, 1 << WGM11); // Fast PWM, 9-bit
-    SET_BIT(TCCR1A, 1 << COM1B1); // Clear OC1A/OC1B on compare match
-    SET_BIT(TCCR1B, 1 << CS10); // clk/1
-    SET_BIT(TCCR1B, 1 << WGM12); // Fast PWM, 9-bit
-}
-
-void IO_Init(void)
-{
-    /* PORTA */
-    MODIFY_REG(DDRA, 0xFF, (1 << 2) | (1 << 3)); // LDP and RDP
-    CLEAR_REG(PORTA);
-    CLEAR_BIT(DDRA, 1 << 0); // TimeRes
-    SET_BIT(PORTA, 1 << 0); // Pull up
-
-    /* PORTB */
-    SET_BIT(DDRB, 1 << 2); // Boost PWM
-    CLEAR_REG(PORTB);
-
-    /* PORTD */
-    MODIFY_REG(DDRD, 0xFF, 0xFF);
-    CLEAR_REG(PORTD);
-}
-
-void CathodeSwitch(unsigned char cathode)
-{
-    if ((cathode >= 0) && (cathode <= 9))
-        MODIFY_REG(PORTD, CATHODE_MASK, cathode << CATHODE_OFFSET);
-}
-
-void AnodeSwitch(uint8_t anode)
-{
-    if ((anode >= 1) && (anode <= 6))
-        MODIFY_REG(PORTD, ANODE_MASK, anode << ANODE_OFFSET);
-}
-
-void Display_DeadTime(void)
-{
-    MODIFY_REG(PORTD, CATHODE_MASK | ANODE_MASK, 12u << CATHODE_OFFSET);
-}
-
-void TimeToDigit(uint8_t number)
-{
-    indication.digit1 = number / 10;
-    indication.digit2 = number % 10;
-}
-
-void TemperatureToDigit(uint16_t temperature)
-{
-    indication.digit1 = temperature / 10000;
-    indication.digit2 = (temperature % 10000) / 1000;
-    indication.digit3 = (temperature % 1000) / 100;
-    indication.digit4 = (temperature % 100) / 10;
-}
-
-void SoftStart(void)
-{
-    if ((!indication.pause) && (!indication.isTurnedOff) && (voltage.pid.setPoint <= VOUT_TASK))
-        voltage.pid.setPoint += 0.01;
-}
-
-void SoftTurnoff(void)
-{
-    if ((indication.isTurnedOff) && (voltage.pid.setPoint > 0.0))
-        voltage.pid.setPoint -= 0.005;
-}
-
 ISR(TIMER0_COMPA_vect)
 {
     if (indication.pause)
         return;
 
-    if (indication.dispMode == DISPLAY_TIME)
+    switch (indication.dispMode)
     {
+    case DISPLAY_TIME:
+    case DISPLAY_CAD:
         switch (indication.counter)
         {
         case 1:
-            TimeToDigit(time.hour);
             AnodeSwitch((indication.counter + 1) / 2);
             CathodeSwitch(indication.digit1);
-            break;
-        case 2:
-            Display_DeadTime();
             break;
         case 3:
             AnodeSwitch((indication.counter + 1) / 2);
             CathodeSwitch(indication.digit2);
             break;
-        case 4:
-            Display_DeadTime();
-            break;
         case 5:
-            TimeToDigit(time.min);
             AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(indication.digit1);
-            break;
-        case 6:
-            Display_DeadTime();
+            CathodeSwitch(indication.digit3);
             break;
         case 7:
             AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(indication.digit2);
-            break;
-        case 8:
-            Display_DeadTime();
+            CathodeSwitch(indication.digit4);
             break;
         case 9:
-            TimeToDigit(time.sec);
             AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(indication.digit1);
-            break;
-        case 10:
-            Display_DeadTime();
+            CathodeSwitch(indication.digit5);
             break;
         case 11:
             AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(indication.digit2);
+            CathodeSwitch(indication.digit6);
             break;
+        case 2:
+        case 4:
+        case 6:
+        case 8:
+        case 10:
         case 12:
             Display_DeadTime();
             break;
         }
-    }
+        break;
 
-    if (indication.dispMode == DISPLAY_TEMPERATURE)
-    {
+    case DISPLAY_TEMPERATURE:
         switch (indication.counter)
         {
         case 1:
-            TemperatureToDigit(temperature.value);
             AnodeSwitch(3u);
-            CathodeSwitch(indication.digit1);
-            break;
-        case 2:
-            Display_DeadTime();
-            break;
-        case 3:
+            CathodeSwitch(indication.digit3);
             break;
         case 4:
             AnodeSwitch(4u);
-            CathodeSwitch(indication.digit2);
+            CathodeSwitch(indication.digit4);
             SET_BIT(PORTA, 1 << 3); // RDP turn on
-            break;
-        case 5:
-            Display_DeadTime();
-            break;
-        case 6:
             break;
         case 7:
             AnodeSwitch(5u);
-            CathodeSwitch(indication.digit3);
+            CathodeSwitch(indication.digit5);
             CLEAR_BIT(PORTA, 1 << 3); // RDP turn off
-            break;
-        case 8:
-            Display_DeadTime();
-            break;
-        case 9:
             break;
         case 10:
             AnodeSwitch(6u);
-            CathodeSwitch(indication.digit4);
-            break;
-        case 11:
-            Display_DeadTime();
-            break;
-        case 12:
-            break;
-        }
-    }
-
-    if (indication.dispMode == DISPLAY_CAD)
-    {
-        switch (indication.counter)
-        {
-        case 1:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit1);
+            CathodeSwitch(indication.digit6);
             break;
         case 2:
-            Display_DeadTime();
-            break;
         case 3:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit2);
-            break;
-        case 4:
-            Display_DeadTime();
-            break;
         case 5:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit3);
-            break;
         case 6:
-            Display_DeadTime();
-            break;
-        case 7:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit4);
-            break;
         case 8:
-            Display_DeadTime();
-            break;
         case 9:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit5);
-            break;
-        case 10:
-            Display_DeadTime();
-            break;
         case 11:
-            AnodeSwitch((indication.counter + 1) / 2);
-            CathodeSwitch(cad.digit6);
-            break;
         case 12:
             Display_DeadTime();
             break;
         }
+        break;
     }
+
     if (++indication.counter > 12)
         indication.counter = 1;
     ++cad.counter;
@@ -235,15 +89,12 @@ ISR(TIMER0_COMPA_vect)
 
 ISR(ADC_vect)
 {
-    if (voltage.adc.counter < ADC_SAMPLES) // Get ADC_sum by x samples
-    {
+    if (++voltage.adc.counter <= ADC_SAMPLES) // Get ADC_sum by x samples
         voltage.adc.sum += ADC;
-        ++voltage.adc.counter;
-    }
     else
     {
         voltage.adc.mean = voltage.adc.sum / ADC_SAMPLES;
-        voltage.adc.value = (voltage.adc.mean * VREF) / 0x3FF;
+        voltage.adc.value = voltage.adc.mean * VREF / 1024;
         voltage.adc.valueScaled = voltage.adc.value * ((R1_VAL + R2_VAL) / R2_VAL);
         voltage.adc.sum = 0;
         voltage.adc.counter = 0;
@@ -259,67 +110,56 @@ int main(void)
     voltage.pid.pidData.Kd = K_D;
     arm_pid_init_f32(&voltage.pid.pidData, 1u);
     IO_Init();
-    TIM0_Init();
-    TIM1_Init();
+    TIMx_Init(0u);
+    TIMx_Init(1u);
     ADC_Init();
     I2C_Init();
     sei();
     _delay_ms(1000);
 
-    /* Read reference temperature */
-    I2C_StartCondition();
-    I2C_SendByte(0b10010000); // Device address + write bit
-    I2C_SendByte(0x00); // Pointer
-    I2C_StartCondition(); // Restart
-    I2C_SendByte(0b10010001); // Device address + read bit
-    temperature.msb = I2C_ReadByte();
-    temperature.lsb = I2C_ReadLastByte();
-    I2C_StopCondition();
-    temperature.valueRef = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
-
-#ifdef FIRST_START
-    /* CLKOUT turnoff */
-    I2C_StartCondition();
+    /* PCF8563 CLKOUT turnoff */
+    I2C_Start();
     I2C_SendByte(0xA2); // Device address + write bit
     I2C_SendByte(0x0D); // Pointer
-    I2C_SendByte(0b00000011); // CLKOUT output is set high-impedance
-    I2C_StopCondition();
+    I2C_SendByte(0x00); // CLKOUT output is set high-impedance
+    I2C_Stop();
 
-    /* Write time */
-    I2C_StartCondition();
-    I2C_SendByte(0xA2); // Device address + write bit
-    I2C_SendByte(0x02); // Pointer
-    I2C_SendByte(RTC_DECtoBCD(00)); // Sec
-    I2C_SendByte(RTC_DECtoBCD(53)); // Min
-    I2C_SendByte(RTC_DECtoBCD(11)); // Hour
-    I2C_StopCondition();
-#endif /* FIRST_START */
+    /* Read reference temperature */
+    I2C_Start();
+    I2C_SendByte(0x90); // Device address + write bit
+    I2C_SendByte(0x00); // Pointer
+    I2C_Start(); // Restart
+    I2C_SendByte(0x91); // Device address + read bit
+    temperature.msb = I2C_ReadByte();
+    temperature.lsb = I2C_ReadLastByte();
+    I2C_Stop();
+    temperature.valueRef = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
+    temperature.value = temperature.valueRef;
+
+    // /* Write time */
+    // I2C_Start();
+    // I2C_SendByte(0xA2); // Device address + write bit
+    // I2C_SendByte(0x02); // Pointer
+    // I2C_SendByte(RTC_DECtoBCD(00)); // Sec
+    // I2C_SendByte(RTC_DECtoBCD(50)); // Min
+    // I2C_SendByte(RTC_DECtoBCD(10)); // Hour
+    // I2C_Stop();
 
     while (1)
     {
-        SoftStart();
+        SoftStart(&indication, &voltage);
         // voltage.pid.setPoint = VOUT_TASK; // Manual control
 
         /* Get time */
-        I2C_StartCondition();
+        I2C_Start();
         I2C_SendByte(0xA2); // Device address + write bit
         I2C_SendByte(0x02); // Pointer
-        I2C_StartCondition(); // Restart
+        I2C_Start(); // Restart
         I2C_SendByte(0xA3); // Device address + read bit
-        time.sec = RTC_BCDtoDEC((I2C_ReadByte()) & 0b01111111);
-        time.min = RTC_BCDtoDEC((I2C_ReadByte()) & 0b01111111);
-        time.hour = RTC_BCDtoDEC((I2C_ReadLastByte()) & 0b00111111);
-        I2C_StopCondition();
-
-        // /* Time Correction */
-        // if ((time.hour == 19) && (time.min == 59) && (time.sec == 52))
-        // {
-        //     I2C_StartCondition();
-        //     I2C_SendByte(0xA2); // Device address + write bit
-        //     I2C_SendByte(0x02); // Pointer
-        //     I2C_SendByte(RTC_DECtoBCD(time.sec + 7)); // Sec
-        //     I2C_StopCondition();
-        // }
+        time.sec = RTC_BCDtoDEC((I2C_ReadByte()) & 0x7F);
+        time.min = RTC_BCDtoDEC((I2C_ReadByte()) & 0x7F);
+        time.hour = RTC_BCDtoDEC((I2C_ReadLastByte()) & 0x3F);
+        I2C_Stop();
 
         /* TimeRes */
         static uint8_t buttonCounter;
@@ -328,23 +168,59 @@ int main(void)
             if (++buttonCounter == 0xFF)
             {
                 buttonCounter = 0;
-                I2C_StartCondition();
+                I2C_Start();
                 I2C_SendByte(0xA2); // Device address + write bit
                 I2C_SendByte(0x02); // Pointer
                 I2C_SendByte(RTC_DECtoBCD(00)); // Sec
                 I2C_SendByte(RTC_DECtoBCD(00)); // Min
                 I2C_SendByte(RTC_DECtoBCD(20)); // Hour
-                I2C_StopCondition();
+                I2C_Stop();
             }
         }
         else
             buttonCounter = 0;
 
+        // /* Time adjust */
+        // if ((!time.adjusted) && (time.hour == 19) && (time.min == 59) && (time.sec == 30))
+        // {
+        //     I2C_Start();
+        //     I2C_SendByte(0xA2); // Device address + write bit
+        //     I2C_SendByte(0x02); // Pointer
+        //     I2C_SendByte(RTC_DECtoBCD(time.sec + 7)); // Sec
+        //     I2C_Stop();
+        //     time.adjusted = true;
+        // }
+        // if ((time.adjusted) && (time.hour == 12))
+        //     time.adjusted = false;
+
+        /* Temperature compensation */
+        if (!temperature.isCompensated)
+        {
+            if ((time.sec % 2) && (temperature.isCompensationAllowed == true))
+                ++temperature.compensationCounter, temperature.isCompensationAllowed = false;
+            if (!(time.sec % 2) && (temperature.isCompensationAllowed == false))
+                ++temperature.compensationCounter, temperature.isCompensationAllowed = true;
+            if (temperature.compensationCounter == 3600)
+            {
+                I2C_Start();
+                I2C_SendByte(0x90); // Device address + write bit
+                I2C_SendByte(0x00); // Pointer
+                I2C_Start(); // Restart
+                I2C_SendByte(0x91); // Device address + read bit
+                temperature.msb = I2C_ReadByte();
+                temperature.lsb = I2C_ReadLastByte();
+                I2C_Stop();
+                temperature.value = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
+                temperature.compensationFactor = temperature.valueRef - temperature.value;
+                temperature.isCompensated = true; // Temperature is compensated after 3600 sec (60 min)
+            }
+        }
+
         /* Daily turnoff */
         if (time.hour < 6)
         {
             indication.isTurnedOff = true;
-            SoftTurnoff();
+            SoftTurnoff(&indication, &voltage);
             if (voltage.pid.setPoint < 100.0)
             {
                 indication.pause = true, Display_DeadTime();
@@ -355,12 +231,9 @@ int main(void)
                     indication.pwmOutputStatus = DISCONNECTED;
                 }
                 if (time.sec % 2) // Turnoff status LED blink
-                {
                     SET_BIT(PORTD, 1 << 0);
-                    _delay_us(100);
+                else
                     CLEAR_BIT(PORTD, 1 << 0);
-                    _delay_us(200);
-                }
             }
         }
         else
@@ -377,6 +250,7 @@ int main(void)
 
         if (!indication.pause)
         {
+
             /* Run PID calculations once every PID timer timeout */
             if (voltage.pid.run)
             {
@@ -393,7 +267,18 @@ int main(void)
                 voltage.pid.run = false;
             }
 
-            /* Display temperature */
+            /* Prepare time */
+            if (indication.dispMode == DISPLAY_TIME)
+            {
+                indication.digit1 = time.hour / 10;
+                indication.digit2 = time.hour % 10;
+                indication.digit3 = time.min / 10;
+                indication.digit4 = time.min % 10;
+                indication.digit5 = time.sec / 10;
+                indication.digit6 = time.sec % 10;
+            }
+
+            /* Prepare temperature */
             if ((time.sec > 9) && (time.sec < 15))
             {
                 if (indication.dispMode != DISPLAY_TEMPERATURE)
@@ -401,115 +286,91 @@ int main(void)
                     /* Read temperature */
                     if (temperature.isCompensated)
                     {
-                        I2C_StartCondition();
-                        I2C_SendByte(0b10010000); // Device address + write bit
+                        I2C_Start();
+                        I2C_SendByte(0x90); // Device address + write bit
                         I2C_SendByte(0x00); // Pointer
-                        I2C_StartCondition(); // Restart
-                        I2C_SendByte(0b10010001); // Device address + read bit
+                        I2C_Start(); // Restart
+                        I2C_SendByte(0x91); // Device address + read bit
                         temperature.msb = I2C_ReadByte();
                         temperature.lsb = I2C_ReadLastByte();
-                        I2C_StopCondition();
+                        I2C_Stop();
                         temperature.value =
                             (1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125)) +
                             temperature.compensationFactor;
                     }
-                    else
-                        temperature.value = temperature.valueRef;
+
+                    indication.digit3 = temperature.value / 10000;
+                    indication.digit4 = (temperature.value / 1000) % 10;
+                    indication.digit5 = (temperature.value / 100) % 10;
+                    indication.digit6 = (temperature.value / 10) % 10;
                     indication.dispMode = DISPLAY_TEMPERATURE;
                 }
             }
             else if (indication.dispMode == DISPLAY_TEMPERATURE)
                 indication.dispMode = DISPLAY_TIME, CLEAR_BIT(PORTA, 1 << 3);
 
-            /* Temperature compensation */
-            if (!temperature.isCompensated)
-            {
-                if ((time.sec % 2) && (temperature.isCompensationAllowed == true))
-                    ++temperature.compensationCounter, temperature.isCompensationAllowed = false;
-                if (!(time.sec % 2) && (temperature.isCompensationAllowed == false))
-                    ++temperature.compensationCounter, temperature.isCompensationAllowed = true;
-                if (temperature.compensationCounter == 3600)
-                {
-                    I2C_StartCondition();
-                    I2C_SendByte(0b10010000); // Device address + write bit
-                    I2C_SendByte(0x00); // Pointer
-                    I2C_StartCondition(); // Restart
-                    I2C_SendByte(0b10010001); // Device address + read bit
-                    temperature.msb = I2C_ReadByte();
-                    temperature.lsb = I2C_ReadLastByte();
-                    I2C_StopCondition();
-                    temperature.value = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
-                    temperature.compensationFactor = temperature.valueRef - temperature.value;
-                    temperature.isCompensated = true; // Temperature value ready after 3600 sec (60 min)
-                }
-            }
-
             /* Cathodes anti-degradation (CAD) */
             if ((time.sec > 34) && (time.sec < 40))
             {
                 if (indication.dispMode != DISPLAY_CAD)
                     indication.dispMode = DISPLAY_CAD, cad.counter = 0;
-                cad.digit1 = (cad.counter / (1445 * 5 / 20)) % 10;
-                cad.digit2 = cad.digit1;
-                cad.digit3 = cad.digit1;
-                cad.digit4 = cad.digit1;
-                cad.digit5 = cad.digit1;
-                cad.digit6 = cad.digit1;
+                indication.digit1 = (cad.counter / (1445 * 5 / 20)) % 10;
+                indication.digit2 = indication.digit1;
+                indication.digit3 = indication.digit1;
+                indication.digit4 = indication.digit1;
+                indication.digit5 = indication.digit1;
+                indication.digit6 = indication.digit1;
             }
             else if ((indication.dispMode == DISPLAY_CAD) && (!cad.update))
             {
-                cad.digit1 = 0;
-                cad.digit2 = 0;
-                cad.digit3 = 0;
-                cad.digit4 = 0;
-                cad.digit5 = 0;
-                cad.digit6 = 0;
+                indication.digit1 = 0;
+                indication.digit2 = 0;
+                indication.digit3 = 0;
+                indication.digit4 = 0;
+                indication.digit5 = 0;
+                indication.digit6 = 0;
                 cad.counter = 0;
                 cad.updateStage = 1;
                 cad.update = true;
             }
-            if (cad.update)
+            if ((indication.dispMode == DISPLAY_CAD) && (cad.update))
             {
                 switch (cad.updateStage)
                 {
                 case 1:
-                    cad.digit1 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.hour / 10) == cad.digit1)
+                    indication.digit1 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.hour / 10) == indication.digit1)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 2:
-                    cad.digit2 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.hour % 10) == cad.digit2)
+                    indication.digit2 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.hour % 10) == indication.digit2)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 3:
-                    cad.digit3 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.min / 10) == cad.digit3)
+                    indication.digit3 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.min / 10) == indication.digit3)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 4:
-                    cad.digit4 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.min % 10) == cad.digit4)
+                    indication.digit4 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.min % 10) == indication.digit4)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 5:
-                    cad.digit5 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.sec / 10) == cad.digit5)
+                    indication.digit5 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.sec / 10) == indication.digit5)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 6:
-                    cad.digit6 = (cad.counter / (1445 * 2 / 10)) % 10;
-                    if ((time.sec % 10) == cad.digit6)
-                        ++cad.updateStage, cad.counter = 0;
-                    break;
-
-                default:
-                    cad.update = false, indication.dispMode = DISPLAY_TIME;
+                    indication.digit6 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    if ((time.sec % 10) == indication.digit6)
+                        cad.update = false, indication.dispMode = DISPLAY_TIME;
                     break;
                 }
             }

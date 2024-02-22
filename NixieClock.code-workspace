@@ -12,7 +12,9 @@
 			"twi.h": "c",
 			"delay.h": "c",
 			"pid.h": "c",
-			"datatypes.h": "c"
+			"datatypes.h": "c",
+			"indication.h": "c",
+			"init.h": "c"
 		}
 	},
 }

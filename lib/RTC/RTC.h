@@ -2,5 +2,5 @@
 
 #include <stdint.h>
 
-unsigned char RTC_BCDtoDEC(unsigned char c);
-unsigned char RTC_DECtoBCD(unsigned char c);
+uint8_t RTC_BCDtoDEC(uint8_t bcd);
+uint8_t RTC_DECtoBCD(uint8_t dec);

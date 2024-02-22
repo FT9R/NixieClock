@@ -1,31 +1,43 @@
 [
 {
   "directory": "E:/AVR/projects/NixieClock/build",
-  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -o CMakeFiles\\NixieClock.elf.dir\\src\\main.c.obj -c E:\\AVR\\projects\\NixieClock\\src\\main.c",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o CMakeFiles\\NixieClock.elf.dir\\src\\indication.c.obj -c E:\\AVR\\projects\\NixieClock\\src\\indication.c",
+  "file": "E:\\AVR\\projects\\NixieClock\\src\\indication.c",
+  "output": "CMakeFiles\\NixieClock.elf.dir\\src\\indication.c.obj"
+},
+{
+  "directory": "E:/AVR/projects/NixieClock/build",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o CMakeFiles\\NixieClock.elf.dir\\src\\init.c.obj -c E:\\AVR\\projects\\NixieClock\\src\\init.c",
+  "file": "E:\\AVR\\projects\\NixieClock\\src\\init.c",
+  "output": "CMakeFiles\\NixieClock.elf.dir\\src\\init.c.obj"
+},
+{
+  "directory": "E:/AVR/projects/NixieClock/build",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o CMakeFiles\\NixieClock.elf.dir\\src\\main.c.obj -c E:\\AVR\\projects\\NixieClock\\src\\main.c",
   "file": "E:\\AVR\\projects\\NixieClock\\src\\main.c",
   "output": "CMakeFiles\\NixieClock.elf.dir\\src\\main.c.obj"
 },
 {
   "directory": "E:/AVR/projects/NixieClock/build",
-  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/ADC -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -o lib\\ADC\\CMakeFiles\\ADC.dir\\ADC.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\ADC\\ADC.c",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/ADC -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o lib\\ADC\\CMakeFiles\\ADC.dir\\ADC.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\ADC\\ADC.c",
   "file": "E:\\AVR\\projects\\NixieClock\\lib\\ADC\\ADC.c",
   "output": "lib\\ADC\\CMakeFiles\\ADC.dir\\ADC.c.obj"
 },
 {
   "directory": "E:/AVR/projects/NixieClock/build",
-  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/PID -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -o lib\\PID\\CMakeFiles\\PID.dir\\PID.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\PID\\PID.c",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/PID -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o lib\\PID\\CMakeFiles\\PID.dir\\PID.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\PID\\PID.c",
   "file": "E:\\AVR\\projects\\NixieClock\\lib\\PID\\PID.c",
   "output": "lib\\PID\\CMakeFiles\\PID.dir\\PID.c.obj"
 },
 {
   "directory": "E:/AVR/projects/NixieClock/build",
-  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/RTC -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -o lib\\RTC\\CMakeFiles\\RTC.dir\\RTC.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\RTC\\RTC.c",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/RTC -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o lib\\RTC\\CMakeFiles\\RTC.dir\\RTC.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\RTC\\RTC.c",
   "file": "E:\\AVR\\projects\\NixieClock\\lib\\RTC\\RTC.c",
   "output": "lib\\RTC\\CMakeFiles\\RTC.dir\\RTC.c.obj"
 },
 {
   "directory": "E:/AVR/projects/NixieClock/build",
-  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -o lib\\TWI\\CMakeFiles\\TWI.dir\\TWI.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\TWI\\TWI.c",
+  "command": "E:\\Toolchain\\avr8-gnu-toolchain\\bin\\avr-gcc.exe -IE:/AVR/projects/NixieClock/lib/TWI -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic -o lib\\TWI\\CMakeFiles\\TWI.dir\\TWI.c.obj -c E:\\AVR\\projects\\NixieClock\\lib\\TWI\\TWI.c",
   "file": "E:\\AVR\\projects\\NixieClock\\lib\\TWI\\TWI.c",
   "output": "lib\\TWI\\CMakeFiles\\TWI.dir\\TWI.c.obj"
 }

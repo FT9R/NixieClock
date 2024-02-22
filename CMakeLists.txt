@@ -26,7 +26,7 @@ add_compile_options(
     -Ofast
     -Wall
     -Werror
-    # -pedantic
+    -pedantic
 )
 
 add_link_options(
@@ -38,9 +38,9 @@ add_link_options(
     -Wl,--gc-sections
 )
 
-add_executable(${PROJECT_NAME}.elf Src/main.c)
-target_include_directories(${PROJECT_NAME}.elf PUBLIC inc)
+add_executable(${PROJECT_NAME}.elf src/indication.c src/init.c src/main.c)
 add_subdirectory(lib)
+target_include_directories(${PROJECT_NAME}.elf PUBLIC inc)
 
 add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
 COMMAND ${AVR_OBJCOPY} -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures ${PROJECT_NAME}.elf ${PROJECT_NAME}.hex)

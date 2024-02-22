@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/PID/libPID.a"
+			"path" : "lib/RTC/libRTC.a"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"lib/PID/CMakeLists.txt",
+			"lib/RTC/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -99,13 +99,17 @@
 				{
 					"backtrace" : 3,
 					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-pedantic"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 4,
-					"path" : "E:/AVR/projects/NixieClock/lib/PID"
+					"path" : "E:/AVR/projects/NixieClock/lib/RTC"
 				}
 			],
 			"language" : "C",
@@ -115,13 +119,13 @@
 			]
 		}
 	],
-	"id" : "PID::@db640250461224e46d66",
-	"name" : "PID",
-	"nameOnDisk" : "libPID.a",
+	"id" : "RTC::@b3c53b8e6b5ee49ffe07",
+	"name" : "RTC",
+	"nameOnDisk" : "libRTC.a",
 	"paths" : 
 	{
-		"build" : "lib/PID",
-		"source" : "lib/PID"
+		"build" : "lib/RTC",
+		"source" : "lib/RTC"
 	},
 	"sourceGroups" : 
 	[
@@ -138,7 +142,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lib/PID/PID.c",
+			"path" : "lib/RTC/RTC.c",
 			"sourceGroupIndex" : 0
 		}
 	],
