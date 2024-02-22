@@ -1,15 +1,18 @@
-# NixieClock
-This is the project of nixie clock based on IN-16 tubes and low-cost ATtiny88 Microcontroller. They are simplified, so they don't have any control buttons, except one reed switch. Reed switch is used to reset time to 20:00.
-If you have any issues with time synchronization, you can trim the value of C17.
+# General description
+This is a nixie clock project based on IN-16 gas-discharge tubes and an inexpensive ATtiny88 microcontroller.  
+It is simplified and has no control buttons except for one reed switch, which is used to reset the time.
+![Clock common view](images/Clock.jpg)
 
-It contains DC-DC converter, that raise voltage from 15 to 180V. PID regulator ingaged in to reach precise voltage level with fast response on feedback. It also use soft start and soft turn off techiques to reduce electrical load of included components and power supply.
-Like other nixie devices, this one uses cathode anti-degradation technology.
+## Features
+* Full time info display: `hh:mm:ss`.
+* Non-isolated boost DC-DC converter with feedback, that raise voltage from 15 to 180V.  
+It helps to keep brightness at constant level. PID controller engaged in to reach precise voltage value with fast feedback response.
+* Soft-start and soft-turnoff techniques to reduce electrical load of included components.
+* Cathodes anti-degradation technology like in other nixie devices.
+* Embedded temperature sensor with auto calibration.
+* The supercapacitor helps to keep the RTC in working order for a long time without an input voltage and does not require replacement like a battery cell.
+* A nighttime display pause to conserve tube resource.
 
-Also, this device contains a temperature sensor, the readings from which will be displayed on the indicators from 10 to 15 seconds. But it doesn't work very well. The reason for this is its location right on the board, which heats up from other components. Attention was paid to this and the sensor was moved further from the components, but this is not enough. Therefore, within one hour after the start, the sensor will be calibrated depending on the environment.
-Principle: the sensor receives one temperature value at start-up and a second value one hour later. The difference between these values is used in the future until the clock is turned off.
-
-At the current moment project is deprecated. The reasons for this are addiction on value of timing capacitor of RTC and temperature sensor calibration necessity.
-The solution to the first problem is the use of synchronization with satellites through GPS interface. The solution to the second problem is the removal of the sensor on a separate board, excluding its heating. I will take care about in future projects.
-
-WARNING!!!
-It must be taken into attention that tubes have a parasitic glow. The introduced dead time between switching of anodes does not sufficiently help to get rid of it. Therefore, in the future, zener diodes D11-D21 were added to the circuit. But the board has not been updated anymore. Based on this, you should additionally solder the zener diodes on the underside of the main board as shown in the attached images.
+## Remarks
+During the clock adjustment, a parasitic glow of the cathodes was detected. Zener diodes D10-D21 with breakdown voltage 75V were used to eliminate this effect. But the PCB has not changed since the first prototype, so the zener diodes must be installed as shown in the figure below
+![Zener diodes placement](images/Zener_diodes.jpg)
