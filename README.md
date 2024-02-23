@@ -1,4 +1,4 @@
-# General description
+# Description
 This is a nixie clock project based on IN-16 gas-discharge tubes and ATtiny88 microcontroller.  
 It is simplified and has no control buttons except for one reed switch, which is used to reset the time.
 ![Clock common view](Images/Clock.JPG)
