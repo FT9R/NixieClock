@@ -89,18 +89,18 @@ ISR(TIMER0_COMPA_vect)
 
 ISR(ADC_vect)
 {
-    if (++voltage.adc.counter <= ADC_SAMPLES) // Get ADC_sum by x samples
+    if (++voltage.adc.counter <= ADC_SAMPLES)
         voltage.adc.sum += ADC;
     else
     {
         voltage.adc.mean = voltage.adc.sum / ADC_SAMPLES;
         voltage.adc.value = voltage.adc.mean * VREF / 1024;
         voltage.adc.valueScaled = voltage.adc.value * ((R1_VAL + R2_VAL) / R2_VAL);
+        voltage.adc.valueScaled *= VOUT_REGL_SLOPE;
+        voltage.adc.valueScaled += VOUT_REGL_INTERCEPT;
         voltage.adc.sum = 0;
         voltage.adc.counter = 0;
     }
-    if (voltage.adc.valueScaled > 200.0)
-        OCR1B = 0; // Output voltage limitation
 }
 
 int main(void)
@@ -113,37 +113,39 @@ int main(void)
     TIMx_Init(0u);
     TIMx_Init(1u);
     ADC_Init();
-    I2C_Init();
+    TWI_Init();
+    USER_LED_ON;
+    _delay_ms(2000);
+    USER_LED_OFF;
     sei();
-    _delay_ms(1000);
 
     /* PCF8563 CLKOUT turnoff */
-    I2C_Start();
-    I2C_SendByte(0xA2); // Device address + write bit
-    I2C_SendByte(0x0D); // Pointer
-    I2C_SendByte(0x00); // CLKOUT output is set high-impedance
-    I2C_Stop();
+    TWI_Start();
+    TWI_SendByte(0xA2); // Device address + write bit
+    TWI_SendByte(0x0D); // Pointer
+    TWI_SendByte(0x00); // CLKOUT output is set high-impedance
+    TWI_Stop();
 
     /* Read reference temperature */
-    I2C_Start();
-    I2C_SendByte(0x90); // Device address + write bit
-    I2C_SendByte(0x00); // Pointer
-    I2C_Start(); // Restart
-    I2C_SendByte(0x91); // Device address + read bit
-    temperature.msb = I2C_ReadByte();
-    temperature.lsb = I2C_ReadLastByte();
-    I2C_Stop();
+    TWI_Start();
+    TWI_SendByte(0x90); // Device address + write bit
+    TWI_SendByte(0x00); // Pointer
+    TWI_Start(); // Restart
+    TWI_SendByte(0x91); // Device address + read bit
+    temperature.msb = TWI_ReadByte();
+    temperature.lsb = TWI_ReadLastByte();
+    TWI_Stop();
     temperature.valueRef = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
     temperature.value = temperature.valueRef;
 
-    // /* Write time */
-    // I2C_Start();
-    // I2C_SendByte(0xA2); // Device address + write bit
-    // I2C_SendByte(0x02); // Pointer
-    // I2C_SendByte(RTC_DECtoBCD(00)); // Sec
-    // I2C_SendByte(RTC_DECtoBCD(50)); // Min
-    // I2C_SendByte(RTC_DECtoBCD(10)); // Hour
-    // I2C_Stop();
+    /* Set time */
+    TWI_Start();
+    TWI_SendByte(0xA2); // Device address + write bit
+    TWI_SendByte(0x02); // Pointer
+    TWI_SendByte(RTC_DECtoBCD(0)); // Sec
+    TWI_SendByte(RTC_DECtoBCD(58)); // Min
+    TWI_SendByte(RTC_DECtoBCD(23)); // Hour
+    TWI_Stop();
 
     while (1)
     {
@@ -151,15 +153,15 @@ int main(void)
         // voltage.pid.setPoint = VOUT_TASK; // Manual control
 
         /* Get time */
-        I2C_Start();
-        I2C_SendByte(0xA2); // Device address + write bit
-        I2C_SendByte(0x02); // Pointer
-        I2C_Start(); // Restart
-        I2C_SendByte(0xA3); // Device address + read bit
-        time.sec = RTC_BCDtoDEC((I2C_ReadByte()) & 0x7F);
-        time.min = RTC_BCDtoDEC((I2C_ReadByte()) & 0x7F);
-        time.hour = RTC_BCDtoDEC((I2C_ReadLastByte()) & 0x3F);
-        I2C_Stop();
+        TWI_Start();
+        TWI_SendByte(0xA2); // Device address + write bit
+        TWI_SendByte(0x02); // Pointer
+        TWI_Start(); // Restart
+        TWI_SendByte(0xA3); // Device address + read bit
+        time.sec = RTC_BCDtoDEC((TWI_ReadByte()) & 0x7F);
+        time.min = RTC_BCDtoDEC((TWI_ReadByte()) & 0x7F);
+        time.hour = RTC_BCDtoDEC((TWI_ReadLastByte()) & 0x3F);
+        TWI_Stop();
 
         /* TimeRes */
         static uint8_t buttonCounter;
@@ -168,13 +170,13 @@ int main(void)
             if (++buttonCounter == 0xFF)
             {
                 buttonCounter = 0;
-                I2C_Start();
-                I2C_SendByte(0xA2); // Device address + write bit
-                I2C_SendByte(0x02); // Pointer
-                I2C_SendByte(RTC_DECtoBCD(00)); // Sec
-                I2C_SendByte(RTC_DECtoBCD(00)); // Min
-                I2C_SendByte(RTC_DECtoBCD(20)); // Hour
-                I2C_Stop();
+                TWI_Start();
+                TWI_SendByte(0xA2); // Device address + write bit
+                TWI_SendByte(0x02); // Pointer
+                TWI_SendByte(RTC_DECtoBCD(00)); // Sec
+                TWI_SendByte(RTC_DECtoBCD(00)); // Min
+                TWI_SendByte(RTC_DECtoBCD(20)); // Hour
+                TWI_Stop();
             }
         }
         else
@@ -183,38 +185,15 @@ int main(void)
         // /* Time adjust */
         // if ((!time.adjusted) && (time.hour == 19) && (time.min == 59) && (time.sec == 30))
         // {
-        //     I2C_Start();
-        //     I2C_SendByte(0xA2); // Device address + write bit
-        //     I2C_SendByte(0x02); // Pointer
-        //     I2C_SendByte(RTC_DECtoBCD(time.sec + 7)); // Sec
-        //     I2C_Stop();
+        //     TWI_Start();
+        //     TWI_SendByte(0xA2); // Device address + write bit
+        //     TWI_SendByte(0x02); // Pointer
+        //     TWI_SendByte(RTC_DECtoBCD(time.sec + 7)); // Sec
+        //     TWI_Stop();
         //     time.adjusted = true;
         // }
         // if ((time.adjusted) && (time.hour == 12))
         //     time.adjusted = false;
-
-        /* Temperature compensation */
-        if (!temperature.isCompensated)
-        {
-            if ((time.sec % 2) && (temperature.isCompensationAllowed == true))
-                ++temperature.compensationCounter, temperature.isCompensationAllowed = false;
-            if (!(time.sec % 2) && (temperature.isCompensationAllowed == false))
-                ++temperature.compensationCounter, temperature.isCompensationAllowed = true;
-            if (temperature.compensationCounter == 3600)
-            {
-                I2C_Start();
-                I2C_SendByte(0x90); // Device address + write bit
-                I2C_SendByte(0x00); // Pointer
-                I2C_Start(); // Restart
-                I2C_SendByte(0x91); // Device address + read bit
-                temperature.msb = I2C_ReadByte();
-                temperature.lsb = I2C_ReadLastByte();
-                I2C_Stop();
-                temperature.value = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
-                temperature.compensationFactor = temperature.valueRef - temperature.value;
-                temperature.isCompensated = true; // Temperature is compensated after 3600 sec (60 min)
-            }
-        }
 
         /* Daily turnoff */
         if (time.hour < 6)
@@ -223,17 +202,19 @@ int main(void)
             SoftTurnoff(&indication, &voltage);
             if (voltage.pid.setPoint < 100.0)
             {
-                indication.pause = true, Display_DeadTime();
                 if (indication.pwmOutputStatus == CONNECTED) // PWM turnoff
                 {
                     OCR1B = 0;
                     CLEAR_BIT(TCCR1A, 1 << COM1B1); // OC1A/OC1B disconnected
                     indication.pwmOutputStatus = DISCONNECTED;
+                    indication.pause = true;
+                    temperature.compensationCounter = 0;
+                    Display_DeadTime();
                 }
                 if (time.sec % 2) // Turnoff status LED blink
-                    SET_BIT(PORTD, 1 << 0);
+                    USER_LED_ON;
                 else
-                    CLEAR_BIT(PORTD, 1 << 0);
+                    USER_LED_OFF;
             }
         }
         else
@@ -243,7 +224,7 @@ int main(void)
             {
                 OCR1B = 0;
                 SET_BIT(TCCR1A, 1 << COM1B1); // Clear OC1A/OC1B on compare match
-                CLEAR_BIT(PORTD, 1 << 0);
+                USER_LED_OFF;
                 indication.pwmOutputStatus = CONNECTED;
             }
         }
@@ -278,22 +259,45 @@ int main(void)
                 indication.digit6 = time.sec % 10;
             }
 
+            /* Temperature compensation */
+            if (!temperature.isCompensated)
+            {
+                if ((time.sec % 2) && (temperature.isCompensationAllowed == true))
+                    ++temperature.compensationCounter, temperature.isCompensationAllowed = false;
+                if (!(time.sec % 2) && (temperature.isCompensationAllowed == false))
+                    ++temperature.compensationCounter, temperature.isCompensationAllowed = true;
+                if (temperature.compensationCounter == 3600)
+                {
+                    TWI_Start();
+                    TWI_SendByte(0x90); // Device address + write bit
+                    TWI_SendByte(0x00); // Pointer
+                    TWI_Start(); // Restart
+                    TWI_SendByte(0x91); // Device address + read bit
+                    temperature.msb = TWI_ReadByte();
+                    temperature.lsb = TWI_ReadLastByte();
+                    TWI_Stop();
+                    temperature.value = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
+                    temperature.compensationFactor = temperature.valueRef - temperature.value;
+                    temperature.isCompensated = true; // Temperature is compensated after 3600 sec (60 min)
+                }
+            }
+
             /* Prepare temperature */
-            if ((time.sec > 9) && (time.sec < 15))
+            if ((time.sec > 4) && (time.sec < 10))
             {
                 if (indication.dispMode != DISPLAY_TEMPERATURE)
                 {
                     /* Read temperature */
                     if (temperature.isCompensated)
                     {
-                        I2C_Start();
-                        I2C_SendByte(0x90); // Device address + write bit
-                        I2C_SendByte(0x00); // Pointer
-                        I2C_Start(); // Restart
-                        I2C_SendByte(0x91); // Device address + read bit
-                        temperature.msb = I2C_ReadByte();
-                        temperature.lsb = I2C_ReadLastByte();
-                        I2C_Stop();
+                        TWI_Start();
+                        TWI_SendByte(0x90); // Device address + write bit
+                        TWI_SendByte(0x00); // Pointer
+                        TWI_Start(); // Restart
+                        TWI_SendByte(0x91); // Device address + read bit
+                        temperature.msb = TWI_ReadByte();
+                        temperature.lsb = TWI_ReadLastByte();
+                        TWI_Stop();
                         temperature.value =
                             (1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125)) +
                             temperature.compensationFactor;
@@ -307,7 +311,7 @@ int main(void)
                 }
             }
             else if (indication.dispMode == DISPLAY_TEMPERATURE)
-                indication.dispMode = DISPLAY_TIME, CLEAR_BIT(PORTA, 1 << 3);
+                CLEAR_BIT(PORTA, 1 << 3), indication.dispMode = DISPLAY_CAD;
 
             /* Cathodes anti-degradation (CAD) */
             if ((time.sec > 34) && (time.sec < 40))

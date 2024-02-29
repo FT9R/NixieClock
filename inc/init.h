@@ -4,4 +4,5 @@
 #include <avr/io.h>
 
 void IO_Init(void);
+void ADC_Init(void);
 void TIMx_Init(uint8_t timx);

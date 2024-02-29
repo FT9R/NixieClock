@@ -39,11 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/AVR/projects/NixieClock/build/lib/ADC/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("E:/AVR/projects/NixieClock/build/lib/PID/cmake_install.cmake")
 endif()
 

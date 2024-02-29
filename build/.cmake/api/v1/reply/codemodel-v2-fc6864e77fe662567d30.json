@@ -19,7 +19,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						1
+						0
 					]
 				},
 				{
@@ -28,8 +28,7 @@
 					[
 						2,
 						3,
-						4,
-						5
+						4
 					],
 					"jsonFile" : "directory-lib-Debug-e9069484d90298468a11.json",
 					"minimumCMakeVersion" : 
@@ -39,21 +38,6 @@
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "lib"
-				},
-				{
-					"build" : "lib/ADC",
-					"jsonFile" : "directory-lib.ADC-Debug-665f13473d1856adabda.json",
-					"minimumCMakeVersion" : 
-					{
-						"string" : "3.28"
-					},
-					"parentIndex" : 1,
-					"projectIndex" : 0,
-					"source" : "lib/ADC",
-					"targetIndexes" : 
-					[
-						0
-					]
 				},
 				{
 					"build" : "lib/PID",
@@ -67,7 +51,7 @@
 					"source" : "lib/PID",
 					"targetIndexes" : 
 					[
-						2
+						1
 					]
 				},
 				{
@@ -82,7 +66,7 @@
 					"source" : "lib/RTC",
 					"targetIndexes" : 
 					[
-						3
+						2
 					]
 				},
 				{
@@ -97,7 +81,7 @@
 					"source" : "lib/TWI",
 					"targetIndexes" : 
 					[
-						4
+						3
 					]
 				}
 			],
@@ -111,8 +95,7 @@
 						1,
 						2,
 						3,
-						4,
-						5
+						4
 					],
 					"name" : "NixieClock",
 					"targetIndexes" : 
@@ -120,43 +103,35 @@
 						0,
 						1,
 						2,
-						3,
-						4
+						3
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 2,
-					"id" : "ADC::@ae8c3fdfe38d32f88a96",
-					"jsonFile" : "target-ADC-Debug-f5bc999849f581fff276.json",
-					"name" : "ADC",
-					"projectIndex" : 0
-				},
-				{
 					"directoryIndex" : 0,
 					"id" : "NixieClock.elf::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NixieClock.elf-Debug-a7370160ac93b3869d5b.json",
+					"jsonFile" : "target-NixieClock.elf-Debug-34ed94722480c75c4659.json",
 					"name" : "NixieClock.elf",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 3,
+					"directoryIndex" : 2,
 					"id" : "PID::@db640250461224e46d66",
 					"jsonFile" : "target-PID-Debug-659db47f708d1099b699.json",
 					"name" : "PID",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 4,
+					"directoryIndex" : 3,
 					"id" : "RTC::@b3c53b8e6b5ee49ffe07",
 					"jsonFile" : "target-RTC-Debug-51a593fab900c6cf21b7.json",
 					"name" : "RTC",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 5,
+					"directoryIndex" : 4,
 					"id" : "TWI::@cfe3995a66f1b85b4411",
 					"jsonFile" : "target-TWI-Debug-6c490ee02e302903c05a.json",
 					"name" : "TWI",

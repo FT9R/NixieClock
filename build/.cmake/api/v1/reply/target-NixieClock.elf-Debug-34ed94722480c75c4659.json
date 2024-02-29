@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 6,
+				"line" : 5,
 				"parent" : 3
 			},
 			{
@@ -126,10 +126,6 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "E:/AVR/projects/NixieClock/lib/ADC"
-				},
-				{
-					"backtrace" : 4,
 					"path" : "E:/AVR/projects/NixieClock/lib/PID"
 				},
 				{
@@ -152,10 +148,6 @@
 	],
 	"dependencies" : 
 	[
-		{
-			"backtrace" : 4,
-			"id" : "ADC::@ae8c3fdfe38d32f88a96"
-		},
 		{
 			"backtrace" : 4,
 			"id" : "PID::@db640250461224e46d66"
@@ -211,11 +203,6 @@
 				"backtrace" : 2,
 				"fragment" : "-Wl,--gc-sections",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 4,
-				"fragment" : "lib\\ADC\\libADC.a",
-				"role" : "libraries"
 			},
 			{
 				"backtrace" : 4,

@@ -3,9 +3,6 @@ E:/AVR/projects/NixieClock/build/CMakeFiles/edit_cache.dir
 E:/AVR/projects/NixieClock/build/CMakeFiles/rebuild_cache.dir
 E:/AVR/projects/NixieClock/build/lib/CMakeFiles/edit_cache.dir
 E:/AVR/projects/NixieClock/build/lib/CMakeFiles/rebuild_cache.dir
-E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/ADC.dir
-E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/edit_cache.dir
-E:/AVR/projects/NixieClock/build/lib/ADC/CMakeFiles/rebuild_cache.dir
 E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/PID.dir
 E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/edit_cache.dir
 E:/AVR/projects/NixieClock/build/lib/PID/CMakeFiles/rebuild_cache.dir

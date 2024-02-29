@@ -47,28 +47,34 @@ cmake_ninja_workdir = E$:/AVR/projects/NixieClock/build/
 #############################################
 # Order-only phony target for NixieClock.elf
 
-build cmake_object_order_depends_target_NixieClock.elf: phony || cmake_object_order_depends_target_ADC cmake_object_order_depends_target_PID cmake_object_order_depends_target_RTC cmake_object_order_depends_target_TWI
+build cmake_object_order_depends_target_NixieClock.elf: phony || cmake_object_order_depends_target_PID cmake_object_order_depends_target_RTC cmake_object_order_depends_target_TWI
 
 build CMakeFiles/NixieClock.elf.dir/src/indication.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/indication.c || cmake_object_order_depends_target_NixieClock.elf
   DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\indication.c.obj.d
   FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
-  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
+  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\NixieClock.elf.dir\
+  TARGET_PDB = NixieClock.elf.pdb
 
 build CMakeFiles/NixieClock.elf.dir/src/init.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/init.c || cmake_object_order_depends_target_NixieClock.elf
   DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\init.c.obj.d
   FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
-  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
+  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\NixieClock.elf.dir\
+  TARGET_PDB = NixieClock.elf.pdb
 
 build CMakeFiles/NixieClock.elf.dir/src/main.c.obj: C_COMPILER__NixieClock.2eelf_unscanned_Debug E$:/AVR/projects/NixieClock/src/main.c || cmake_object_order_depends_target_NixieClock.elf
   DEP_FILE = CMakeFiles\NixieClock.elf.dir\src\main.c.obj.d
   FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
-  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/ADC -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
+  INCLUDES = -IE:/AVR/projects/NixieClock/inc -IE:/AVR/projects/NixieClock/lib/PID -IE:/AVR/projects/NixieClock/lib/RTC -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
   OBJECT_FILE_DIR = CMakeFiles\NixieClock.elf.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\NixieClock.elf.dir\
+  TARGET_PDB = NixieClock.elf.pdb
 
 
 # =============================================================================
@@ -78,15 +84,16 @@ build CMakeFiles/NixieClock.elf.dir/src/main.c.obj: C_COMPILER__NixieClock.2eelf
 #############################################
 # Link the executable NixieClock.elf
 
-build NixieClock.elf: C_EXECUTABLE_LINKER__NixieClock.2eelf_Debug CMakeFiles/NixieClock.elf.dir/src/indication.c.obj CMakeFiles/NixieClock.elf.dir/src/init.c.obj CMakeFiles/NixieClock.elf.dir/src/main.c.obj | lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a || lib/ADC/libADC.a lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a
+build NixieClock.elf: C_EXECUTABLE_LINKER__NixieClock.2eelf_Debug CMakeFiles/NixieClock.elf.dir/src/indication.c.obj CMakeFiles/NixieClock.elf.dir/src/init.c.obj CMakeFiles/NixieClock.elf.dir/src/main.c.obj | lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a || lib/PID/libPID.a lib/RTC/libRTC.a lib/TWI/libTWI.a
   FLAGS = -g
   LINK_FLAGS = -mmcu=attiny88 -Wl,-Map=NixieClock.map -Wl,--start-group -Wl,-lm -Wl,--end-group -Wl,--gc-sections
-  LINK_LIBRARIES = lib/ADC/libADC.a  lib/PID/libPID.a  lib/RTC/libRTC.a  lib/TWI/libTWI.a
+  LINK_LIBRARIES = lib/PID/libPID.a  lib/RTC/libRTC.a  lib/TWI/libTWI.a
   OBJECT_DIR = CMakeFiles\NixieClock.elf.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D E:\AVR\projects\NixieClock\build && E:\Toolchain\avr8-gnu-toolchain\bin\avr-objcopy.exe -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures NixieClock.elf NixieClock.hex && cd /D E:\AVR\projects\NixieClock\build && ( E:\Toolchain\avr8-gnu-toolchain\bin\avr-objcopy.exe -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex NixieClock.elf NixieClock.eep || exit 0 ) && cd /D E:\AVR\projects\NixieClock\build && E:\Toolchain\avr8-gnu-toolchain\bin\avr-objdump.exe -h -S NixieClock.elf > NixieClock.lss && cd /D E:\AVR\projects\NixieClock\build && E:\Toolchain\avr8-gnu-toolchain\bin\avr-objcopy.exe -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures NixieClock.elf NixieClock.srec && cd /D E:\AVR\projects\NixieClock\build && E:\Toolchain\avr8-gnu-toolchain\bin\avr-size.exe NixieClock.elf"
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\NixieClock.elf.dir\
   TARGET_FILE = NixieClock.elf
-  TARGET_PDB = NixieClock.elf.dbg
+  TARGET_PDB = NixieClock.elf.pdb
 
 
 #############################################
@@ -147,67 +154,6 @@ build lib/rebuild_cache: phony lib/CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target ADC
-
-
-#############################################
-# Order-only phony target for ADC
-
-build cmake_object_order_depends_target_ADC: phony || lib/ADC/CMakeFiles/ADC.dir
-
-build lib/ADC/CMakeFiles/ADC.dir/ADC.c.obj: C_COMPILER__ADC_unscanned_Debug E$:/AVR/projects/NixieClock/lib/ADC/ADC.c || cmake_object_order_depends_target_ADC
-  DEP_FILE = lib\ADC\CMakeFiles\ADC.dir\ADC.c.obj.d
-  FLAGS = -g -mmcu=attiny88 -DF_CPU=16000000 -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Ofast -Wall -Werror -pedantic
-  INCLUDES = -IE:/AVR/projects/NixieClock/lib/ADC
-  OBJECT_DIR = lib\ADC\CMakeFiles\ADC.dir
-  OBJECT_FILE_DIR = lib\ADC\CMakeFiles\ADC.dir
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target ADC
-
-
-#############################################
-# Link the static library lib\ADC\libADC.a
-
-build lib/ADC/libADC.a: C_STATIC_LIBRARY_LINKER__ADC_Debug lib/ADC/CMakeFiles/ADC.dir/ADC.c.obj
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = lib\ADC\CMakeFiles\ADC.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = lib\ADC\libADC.a
-  TARGET_PDB = ADC.a.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build lib/ADC/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D E:\AVR\projects\NixieClock\build\lib\ADC && "C:\Program Files\CMake\bin\cmake-gui.exe" -SE:\AVR\projects\NixieClock -BE:\AVR\projects\NixieClock\build"
-  DESC = Running CMake cache editor...
-  pool = console
-  restat = 1
-
-build lib/ADC/edit_cache: phony lib/ADC/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build lib/ADC/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D E:\AVR\projects\NixieClock\build\lib\ADC && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SE:\AVR\projects\NixieClock -BE:\AVR\projects\NixieClock\build"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build lib/ADC/rebuild_cache: phony lib/ADC/CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# E:/AVR/projects/NixieClock/lib/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
 # Object build statements for STATIC_LIBRARY target PID
 
 
@@ -222,6 +168,8 @@ build lib/PID/CMakeFiles/PID.dir/PID.c.obj: C_COMPILER__PID_unscanned_Debug E$:/
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/PID
   OBJECT_DIR = lib\PID\CMakeFiles\PID.dir
   OBJECT_FILE_DIR = lib\PID\CMakeFiles\PID.dir
+  TARGET_COMPILE_PDB = lib\PID\CMakeFiles\PID.dir\PID.pdb
+  TARGET_PDB = lib\PID\libPID.pdb
 
 
 # =============================================================================
@@ -236,8 +184,9 @@ build lib/PID/libPID.a: C_STATIC_LIBRARY_LINKER__PID_Debug lib/PID/CMakeFiles/PI
   OBJECT_DIR = lib\PID\CMakeFiles\PID.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\PID\CMakeFiles\PID.dir\PID.pdb
   TARGET_FILE = lib\PID\libPID.a
-  TARGET_PDB = PID.a.dbg
+  TARGET_PDB = lib\PID\libPID.pdb
 
 
 #############################################
@@ -283,6 +232,8 @@ build lib/RTC/CMakeFiles/RTC.dir/RTC.c.obj: C_COMPILER__RTC_unscanned_Debug E$:/
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/RTC
   OBJECT_DIR = lib\RTC\CMakeFiles\RTC.dir
   OBJECT_FILE_DIR = lib\RTC\CMakeFiles\RTC.dir
+  TARGET_COMPILE_PDB = lib\RTC\CMakeFiles\RTC.dir\RTC.pdb
+  TARGET_PDB = lib\RTC\libRTC.pdb
 
 
 # =============================================================================
@@ -297,8 +248,9 @@ build lib/RTC/libRTC.a: C_STATIC_LIBRARY_LINKER__RTC_Debug lib/RTC/CMakeFiles/RT
   OBJECT_DIR = lib\RTC\CMakeFiles\RTC.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\RTC\CMakeFiles\RTC.dir\RTC.pdb
   TARGET_FILE = lib\RTC\libRTC.a
-  TARGET_PDB = RTC.a.dbg
+  TARGET_PDB = lib\RTC\libRTC.pdb
 
 
 #############################################
@@ -344,6 +296,8 @@ build lib/TWI/CMakeFiles/TWI.dir/TWI.c.obj: C_COMPILER__TWI_unscanned_Debug E$:/
   INCLUDES = -IE:/AVR/projects/NixieClock/lib/TWI
   OBJECT_DIR = lib\TWI\CMakeFiles\TWI.dir
   OBJECT_FILE_DIR = lib\TWI\CMakeFiles\TWI.dir
+  TARGET_COMPILE_PDB = lib\TWI\CMakeFiles\TWI.dir\TWI.pdb
+  TARGET_PDB = lib\TWI\libTWI.pdb
 
 
 # =============================================================================
@@ -358,8 +312,9 @@ build lib/TWI/libTWI.a: C_STATIC_LIBRARY_LINKER__TWI_Debug lib/TWI/CMakeFiles/TW
   OBJECT_DIR = lib\TWI\CMakeFiles\TWI.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = lib\TWI\CMakeFiles\TWI.dir\TWI.pdb
   TARGET_FILE = lib\TWI\libTWI.a
-  TARGET_PDB = TWI.a.dbg
+  TARGET_PDB = lib\TWI\libTWI.pdb
 
 
 #############################################
@@ -388,15 +343,11 @@ build lib/TWI/rebuild_cache: phony lib/TWI/CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build ADC: phony lib/ADC/libADC.a
-
 build PID: phony lib/PID/libPID.a
 
 build RTC: phony lib/RTC/libRTC.a
 
 build TWI: phony lib/TWI/libTWI.a
-
-build libADC.a: phony lib/ADC/libADC.a
 
 build libPID.a: phony lib/PID/libPID.a
 
@@ -419,14 +370,7 @@ build all: phony NixieClock.elf lib/all
 #############################################
 # Folder: E:/AVR/projects/NixieClock/build/lib
 
-build lib/all: phony lib/ADC/all lib/PID/all lib/RTC/all lib/TWI/all
-
-# =============================================================================
-
-#############################################
-# Folder: E:/AVR/projects/NixieClock/build/lib/ADC
-
-build lib/ADC/all: phony lib/ADC/libADC.a
+build lib/all: phony lib/PID/all lib/RTC/all lib/TWI/all
 
 # =============================================================================
 
@@ -456,14 +400,14 @@ build lib/TWI/all: phony lib/TWI/libTWI.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/AVR/projects/NixieClock/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/ADC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/PID/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/RTC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/TWI/CMakeLists.txt
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/AVR/projects/NixieClock/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/PID/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/RTC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/TWI/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/AVR/projects/NixieClock/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/ADC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/PID/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/RTC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/TWI/CMakeLists.txt: phony
+build C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-3.28/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake E$:/AVR/projects/NixieClock/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/PID/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/RTC/CMakeLists.txt E$:/AVR/projects/NixieClock/lib/TWI/CMakeLists.txt: phony
 
 
 #############################################

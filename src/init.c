@@ -17,6 +17,18 @@ void IO_Init(void)
     CLEAR_REG(PORTD);
 }
 
+void ADC_Init(void)
+{
+    MODIFY_REG(ADMUX, 0x0F, 0x00); // ADC0
+    CLEAR_BIT(ADMUX, 1 << ADLAR); // Right adjust
+    CLEAR_BIT(ADMUX, 1 << REFS0); // Internal 1.1V voltage reference
+    MODIFY_REG(ADCSRA, 0x07, (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2)); // 128x prescaler
+    SET_BIT(ADCSRA, 1 << ADIE); // ADC Interrupt Enable
+    SET_BIT(ADCSRA, 1 << ADATE); // ADC Auto Trigger Enable
+    SET_BIT(ADCSRA, 1 << ADEN); // ADC Enable
+    SET_BIT(ADCSRA, 1 << ADSC); // ADC Start Conversion
+}
+
 void TIMx_Init(uint8_t timx)
 {
     switch (timx)
