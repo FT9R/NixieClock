@@ -13,3 +13,10 @@ and helps to keep brightness at constant level.
 * Embedded temperature sensor with compensation.
 * The supercapacitor helps to keep the RTC in working order for a long time without an input voltage and does not require replacement.
 * A nighttime display pause to conserve tube resource.
+
+## Dependencies
+* VS Code
+* CMake
+* ninja-build
+* AVR GCC toolchain
+* AVRDUDE
