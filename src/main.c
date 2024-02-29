@@ -135,17 +135,17 @@ int main(void)
     temperature.msb = TWI_ReadByte();
     temperature.lsb = TWI_ReadLastByte();
     TWI_Stop();
-    temperature.valueRef = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
-    temperature.value = temperature.valueRef;
+    temperature.compensation.reference = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
+    temperature.value = temperature.compensation.reference;
 
-    /* Set time */
-    TWI_Start();
-    TWI_SendByte(0xA2); // Device address + write bit
-    TWI_SendByte(0x02); // Pointer
-    TWI_SendByte(RTC_DECtoBCD(0)); // Sec
-    TWI_SendByte(RTC_DECtoBCD(58)); // Min
-    TWI_SendByte(RTC_DECtoBCD(23)); // Hour
-    TWI_Stop();
+    // /* Set time */
+    // TWI_Start();
+    // TWI_SendByte(0xA2); // Device address + write bit
+    // TWI_SendByte(0x02); // Pointer
+    // TWI_SendByte(RTC_DECtoBCD(00)); // Sec
+    // TWI_SendByte(RTC_DECtoBCD(01)); // Min
+    // TWI_SendByte(RTC_DECtoBCD(15)); // Hour
+    // TWI_Stop();
 
     while (1)
     {
@@ -158,16 +158,16 @@ int main(void)
         TWI_SendByte(0x02); // Pointer
         TWI_Start(); // Restart
         TWI_SendByte(0xA3); // Device address + read bit
-        time.sec = RTC_BCDtoDEC((TWI_ReadByte()) & 0x7F);
-        time.min = RTC_BCDtoDEC((TWI_ReadByte()) & 0x7F);
-        time.hour = RTC_BCDtoDEC((TWI_ReadLastByte()) & 0x3F);
+        time.sec = RTC_BCDtoDEC((TWI_ReadByte()) & RTC_SEC_MASK);
+        time.min = RTC_BCDtoDEC((TWI_ReadByte()) & RTC_MIN_MASK);
+        time.hour = RTC_BCDtoDEC((TWI_ReadLastByte()) & RTC_HOUR_MASK);
         TWI_Stop();
 
         /* TimeRes */
         static uint8_t buttonCounter;
         if (!READ_BIT(PINA, 1 << PINA0))
         {
-            if (++buttonCounter == 0xFF)
+            if (++buttonCounter == UINT8_MAX)
             {
                 buttonCounter = 0;
                 TWI_Start();
@@ -208,13 +208,10 @@ int main(void)
                     CLEAR_BIT(TCCR1A, 1 << COM1B1); // OC1A/OC1B disconnected
                     indication.pwmOutputStatus = DISCONNECTED;
                     indication.pause = true;
-                    temperature.compensationCounter = 0;
+                    temperature.compensation.counter = 0;
                     Display_DeadTime();
                 }
-                if (time.sec % 2) // Turnoff status LED blink
-                    USER_LED_ON;
-                else
-                    USER_LED_OFF;
+                (time.sec % 2) ? USER_LED_ON : USER_LED_OFF;
             }
         }
         else
@@ -260,13 +257,13 @@ int main(void)
             }
 
             /* Temperature compensation */
-            if (!temperature.isCompensated)
+            if (!temperature.compensation.ready)
             {
-                if ((time.sec % 2) && (temperature.isCompensationAllowed == true))
-                    ++temperature.compensationCounter, temperature.isCompensationAllowed = false;
-                if (!(time.sec % 2) && (temperature.isCompensationAllowed == false))
-                    ++temperature.compensationCounter, temperature.isCompensationAllowed = true;
-                if (temperature.compensationCounter == 3600)
+                if ((time.sec % 2) && (temperature.compensation.allowIncrement == true))
+                    ++temperature.compensation.counter, temperature.compensation.allowIncrement = false;
+                if (!(time.sec % 2) && (temperature.compensation.allowIncrement == false))
+                    ++temperature.compensation.counter, temperature.compensation.allowIncrement = true;
+                if (temperature.compensation.counter == 3600)
                 {
                     TWI_Start();
                     TWI_SendByte(0x90); // Device address + write bit
@@ -277,8 +274,8 @@ int main(void)
                     temperature.lsb = TWI_ReadLastByte();
                     TWI_Stop();
                     temperature.value = 1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125);
-                    temperature.compensationFactor = temperature.valueRef - temperature.value;
-                    temperature.isCompensated = true; // Temperature is compensated after 3600 sec (60 min)
+                    temperature.compensation.factor = temperature.compensation.reference - temperature.value;
+                    temperature.compensation.ready = true; // Temperature is compensated after 3600 sec (60 min)
                 }
             }
 
@@ -288,7 +285,7 @@ int main(void)
                 if (indication.dispMode != DISPLAY_TEMPERATURE)
                 {
                     /* Read temperature */
-                    if (temperature.isCompensated)
+                    if (temperature.compensation.ready)
                     {
                         TWI_Start();
                         TWI_SendByte(0x90); // Device address + write bit
@@ -300,7 +297,7 @@ int main(void)
                         TWI_Stop();
                         temperature.value =
                             (1000 * (((((temperature.msb << 8) | temperature.lsb) >> 5) & 0x7FF) * 0.125)) +
-                            temperature.compensationFactor;
+                            temperature.compensation.factor;
                     }
 
                     indication.digit3 = temperature.value / 10000;
@@ -342,37 +339,37 @@ int main(void)
                 switch (cad.updateStage)
                 {
                 case 1:
-                    indication.digit1 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit1 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.hour / 10) == indication.digit1)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 2:
-                    indication.digit2 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit2 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.hour % 10) == indication.digit2)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 3:
-                    indication.digit3 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit3 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.min / 10) == indication.digit3)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 4:
-                    indication.digit4 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit4 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.min % 10) == indication.digit4)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 5:
-                    indication.digit5 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit5 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.sec / 10) == indication.digit5)
                         ++cad.updateStage, cad.counter = 0;
                     break;
 
                 case 6:
-                    indication.digit6 = (cad.counter / (1445 * 2 / 10)) % 10;
+                    indication.digit6 = (cad.counter / (1445 * 1 / 10)) % 10;
                     if ((time.sec % 10) == indication.digit6)
                         cad.update = false, indication.dispMode = DISPLAY_TIME;
                     break;

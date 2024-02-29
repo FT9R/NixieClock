@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 #define K_P                 0.01f
 #define K_I                 0.00005f
 #define K_D                 0.0f
@@ -14,7 +16,7 @@
 #define R2_VAL              1000
 #define CONNECTED           true
 #define DISCONNECTED        false
-#if (ADC_SAMPLES > 255)
+#if (ADC_SAMPLES > UINT8_MAX)
 #error "Too much ADC samples"
 #endif
 

@@ -38,13 +38,16 @@ struct CAD_s
 struct Temperature_s
 {
     uint16_t value;
-    uint16_t valueRef;
-    int16_t compensationFactor;
-    uint16_t compensationCounter;
     uint8_t msb;
     uint8_t lsb;
-    bool isCompensationAllowed;
-    bool isCompensated;
+    struct
+    {
+        int16_t factor;
+        uint16_t reference;
+        uint16_t counter;
+        bool allowIncrement;
+        bool ready;
+    } compensation;
 } temperature;
 
 struct Voltage_s

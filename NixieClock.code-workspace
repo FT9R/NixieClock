@@ -14,7 +14,8 @@
 			"pid.h": "c",
 			"datatypes.h": "c",
 			"indication.h": "c",
-			"init.h": "c"
+			"init.h": "c",
+			"limits.h": "c"
 		}
 	},
 }
