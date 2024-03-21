@@ -163,7 +163,7 @@ int main(void)
         time.hour = RTC_BCDtoDEC((TWI_ReadLastByte()) & RTC_HOUR_MASK);
         TWI_Stop();
 
-        /* TimeRes */
+        /* Time reset */
         static uint8_t buttonCounter;
         if (!READ_BIT(PINA, 1 << PINA0))
         {
@@ -182,18 +182,21 @@ int main(void)
         else
             buttonCounter = 0;
 
-        // /* Time adjust */
-        // if ((!time.adjusted) && (time.hour == 19) && (time.min == 59) && (time.sec == 30))
-        // {
-        //     TWI_Start();
-        //     TWI_SendByte(0xA2); // Device address + write bit
-        //     TWI_SendByte(0x02); // Pointer
-        //     TWI_SendByte(RTC_DECtoBCD(time.sec + 7)); // Sec
-        //     TWI_Stop();
-        //     time.adjusted = true;
-        // }
-        // if ((time.adjusted) && (time.hour == 12))
-        //     time.adjusted = false;
+        /* Time adjust */
+        if ((time.hour == 19) && (time.min == 59) && (time.sec == 30))
+        {
+            if (!time.adjusted)
+            {
+                TWI_Start();
+                TWI_SendByte(0xA2); // Device address + write bit
+                TWI_SendByte(0x02); // Pointer
+                TWI_SendByte(RTC_DECtoBCD(time.sec + TIME_ADJUST_SEC));
+                TWI_Stop();
+                time.adjusted = true;
+            }
+        }
+        if ((time.hour != 19) && (time.adjusted))
+            time.adjusted = false;
 
         /* Daily turnoff */
         if (time.hour < 6)
@@ -228,7 +231,6 @@ int main(void)
 
         if (!indication.pause)
         {
-
             /* Run PID calculations once every PID timer timeout */
             if (voltage.pid.run)
             {
